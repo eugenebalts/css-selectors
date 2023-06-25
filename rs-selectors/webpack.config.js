@@ -3,9 +3,10 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/index'),
+    entry: './src/index',
     mode: 'development',
     module: {
         rules: [
@@ -18,13 +19,13 @@ const baseConfig = {
                 use: 'ts-loader'
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(jpe?g|gif|png)$/i,
                 use: [
                         {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'images/',
+                            outputPath: './images/',
                         },
                     },
                 ],
@@ -41,11 +42,19 @@ const baseConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
+            template: './src/index.html',
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(),
-        new EslintPlugin({ extensions: 'ts' })
+        new EslintPlugin({ extensions: 'ts' }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/images'),
+                    to:   path.resolve(__dirname, 'dist/images')
+                }
+            ]
+        })
     ],
 };
 
