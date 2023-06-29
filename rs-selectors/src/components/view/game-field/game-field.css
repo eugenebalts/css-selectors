@@ -1,0 +1,80 @@
+/* ----- FIELD -----*/
+    
+.field__land {
+    position: relative;
+    margin: 0 auto;
+    border: 5px solid rgba(0, 0, 0, .7);
+    height: 300px;
+    width: 450px;
+    overflow: hidden;
+}
+
+.field__background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 150%;
+    z-index: 0;
+}
+
+.vehicle {
+    position: absolute;
+    width: 80px;
+}
+
+.vehicle_top-line {
+    bottom: 50px;
+}
+
+.vehicle_down-line {
+    bottom: 20px;
+}
+
+.to-find {
+    transform-origin: bottom;
+    animation: to-find-start .5s ease-in, to-find-end 1s infinite;
+}
+
+    /* ----- LEVELS ----- */
+
+    .level-1 .car-green1 {
+        left: 50px;
+    }
+
+    .level-1 .car-red1 {
+        left: 250px;
+    }
+
+@keyframes to-find-start {
+    0% {
+        transform: skew(0deg, 0deg) scaleY(1);
+        animation-timing-function: ease-in;
+    }
+
+    40% {
+        transform: skew(0deg,0deg) scaleY(.9);
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        transform: skew(4deg,0deg) scaleX(1);
+    }
+}
+
+@keyframes to-find-end {
+    0% {
+        transform: skew(4deg,0deg) scaleX(1);
+    }
+    10% {
+        transform: skew(1deg,0deg) scaleY(.9);
+    }
+    50% {
+        transform: skew(-4deg,0deg) scaleX(1);
+    }
+    60% {
+        transform: skew(-1deg,0deg) scaleY(.9);
+    }
+    100% {
+        transform: skew(4deg,0deg) scaleX(1);
+    }
+}

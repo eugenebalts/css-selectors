@@ -1,0 +1,53 @@
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+	width: 15%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+	color: whitesmoke;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.levels-control {
+	padding: 0 20px;
+	font-size: 20px;
+}
+
+.levels__title {
+	opacity: .5;
+	cursor: pointer;
+	transition: all .05s linear;
+}
+
+.levels__title:hover {
+	opacity: 1;
+	transform: scale(1.05);
+}
+
+.levels__title span {
+	color: rgba(159, 255, 115, .7)
+}
+
+.levels__title:hover span {
+	color: rgba(159, 255, 115, .8)
+}
+
+.levels__title_active {
+	width: fit-content;
+	display: inline-block;
+	position: relative;
+	opacity: 1;
+	transform: scale(1.1);
+}
+
+.levels__title_active::before {
+	position: absolute;
+	display: block;
+	content: '<';
+	color: red;
+	font-weight: 700;
+	top: 0;
+	right: -20px;
+}
