@@ -1,9 +1,9 @@
-import {Levels} from '../../../types'
+import {Levels} from '../../../types';
 
 const LEVELS: Levels = [
 	{
 		level: 1,
-		name: 'Tags',
+		name: 'A',
 		class: 'level-1',
 		objects: [
 			{
@@ -18,11 +18,12 @@ const LEVELS: Levels = [
 			}
 		],
 		objectsToFind: ['car-green1', 'car-red1'],
+		rightAnswer: 'car'
         
 	},
 	{
 		level: 2,
-		name: 'Tags',
+		name: 'A',
 		class: 'level-2',
 		objects: [
 			{
@@ -37,11 +38,12 @@ const LEVELS: Levels = [
 			},
 			{
 				image: 'scooter1',
-				row: 'vehicle_top-line',
+				row: 'vehicle_down-line',
 				class: 'vehicle'
 			},
 		],
 		objectsToFind: ['scooter1'],
+		rightAnswer: 'scooter',
 	},
 	{
 		level: 3,
@@ -65,10 +67,11 @@ const LEVELS: Levels = [
 			},
 		],
 		objectsToFind: ['car-police1'],
+		rightAnswer: '#police',
 	},
 	{
 		level: 4,
-		name: 'Tag inside',
+		name: 'A B',
 		class: 'level-4',
 		objects: [
 			{
@@ -78,7 +81,7 @@ const LEVELS: Levels = [
 			},
 			{
 				image: 'car-truck1',
-				row: 'vehicle_top-line',
+				row: 'vehicle_down-line',
 				class: 'vehicle'
 			},
 			{
@@ -88,7 +91,32 @@ const LEVELS: Levels = [
 			},
 		],
 		objectsToFind: ['car-green1'],
-	}
+		rightAnswer: 'truck car',
+	},
+	{
+		level: 5,
+		name: '#id A',
+		class: 'level-4',
+		objects: [
+			{
+				image: 'car-truck1',
+				row: 'vehicle_top-line',
+				class: 'vehicle'
+			},
+			{
+				image: 'car-truck1',
+				row: 'vehicle_down-line',
+				class: 'vehicle'
+			},
+			{
+				image: 'car-truck1',
+				row: 'vehicle_down-line',
+				class: 'vehicle'
+			},
+		],
+		objectsToFind: ['car-green1'],	
+		rightAnswer: 'truck car',
+	},
 ];
 
 export default LEVELS;

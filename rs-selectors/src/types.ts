@@ -5,7 +5,8 @@ interface ILevel {
 	name: string,
 	class: string,
 	objects: Array<ICar>,
-	objectsToFind: Array<string>
+	objectsToFind: Array<string>,
+	rightAnswer: string,
 }
 
 interface ICar {
