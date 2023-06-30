@@ -1,10 +1,12 @@
 import './level-controls.css';
 import LEVELS from '../../controller/manageLevels//levels';
+import variables from '../../controller/manageLevels/variables';
 
 export default class LevelControl {
     sidebar: HTMLDivElement | null = document.querySelector('.sidebar');
 
-    writeLevels(lvl: number) {
+    writeLevels() {
+        const lvl = Number(variables.currentLevel);
         const levelsWrapper: HTMLDivElement = document.createElement('div');
         levelsWrapper.classList.add('levels-control');
         for (const level of LEVELS) {
