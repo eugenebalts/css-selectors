@@ -20,6 +20,15 @@
 .vehicle {
     position: absolute;
     width: 80px;
+    transition: all .5s ease-in;
+}
+
+.vehicle_fined-top {
+    animation: fined-top 1.5s infinite;
+}
+
+.vehicle_fined-down {
+    animation: fined-down 1.5s infinite;
 }
 
 .vehicle_top-line {
@@ -27,7 +36,7 @@
 }
 
 .vehicle_down-line {
-    bottom: 20px;
+    bottom: 10px;
 }
 
 .to-find {
@@ -43,6 +52,48 @@
 
     .level-1 .car-red1 {
         left: 250px;
+    }
+
+
+    .level-2 .car-green1 {
+        left: 350px;
+    }
+
+    .level-2 .car-red2 {
+        left: 100px;
+    }
+
+    .level-2 .scooter1 {
+        left: 150px;
+    }
+    
+
+    .level-3 .car-green1 {
+        left: 120px;
+    }
+
+    .level-3 .car-red2 {
+        left: 300px;
+    }
+
+    .level-3 .car-police1 {
+        left: 200px;
+        bottom: 30px;
+    }
+
+    
+    .level-4 .car-truck1 {
+        width: 250px;
+        left: 65px;
+    }
+
+    .level-4 .car-green1 {
+        bottom: 27px;
+        left: 115px;
+    }
+
+    .level-4 .car-red2 {
+        left: 350px;
     }
 
 @keyframes to-find-start {
@@ -78,3 +129,42 @@
         transform: skew(4deg,0deg) scaleX(1);
     }
 }
+
+@keyframes fined-top {
+    0% {
+        transform: scale(1);
+    }
+
+    33% {
+        transform: scale(1.5);
+    }
+
+    66% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        transform: scale(1) translateX(-500px);
+    }
+}
+
+@keyframes fined-down {
+    0% {
+        transform: scale(1);
+    }
+
+    33% {
+        transform: scale(1.5);
+    }
+
+    66% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        transform: scale(1) translateX(500px);
+    }
+}
+
