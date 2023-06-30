@@ -1,6 +1,6 @@
- /*----- EDITOR ----*/
+/*----- EDITOR ----*/
 
- .main__editor {
+.main__editor {
 	display: flex;
 	justify-content: center;
 	font-size: 15px;
@@ -10,6 +10,27 @@
 	display: flex;
 	width: 80%;
 	background-color: rgba(0, 0, 0, .7);
+}
+
+.editor__wrapper_incorrect {
+	animation: incorrect .1s infinite;
+}
+
+@keyframes incorrect {
+    0% {
+        transform: skew(1deg, 0deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: skew(0deg, 1deg);
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        transform: skew(0deg, 0deg);
+        animation-timing-function: ease-out;
+    }
 }
 
 .editor__field {
@@ -35,11 +56,20 @@
 	
 }
 
+.editor__input-wrapper_css {
+	position: relative;
+}
+
+
 .input__line-numbers {
-	padding: 0 5px 0 10px;
+	padding: 5px 5px 5px 10px;
 	margin-right: 5px;
 	background-color: rgba(0, 0, 0, .3);
 	text-align: right;
+}
+
+.input__field {
+	padding: 5px;
 }
 
 .input__input-css {
@@ -52,6 +82,15 @@
 
 .input__input-css:focus {
 	outline: none;
+	width: 80%;
+}
+
+.editor__enter-btn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width: 15%;
+	cursor: pointer;
 }
 
 @keyframes input {
