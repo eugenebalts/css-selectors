@@ -6,19 +6,19 @@ export default class GameField {
 	gameField: HTMLDivElement | null = document.querySelector('.field');
 
 	initialField() {
-		const lvl: number | null = Number(variables.currentLevel);
+		const currentLevel = variables.currentLevel;
 		if (this.gameField?.getAttribute('class')) {
 			this.gameField.removeAttribute('class');
 			this.gameField.classList.add('field');
 		}
 		if (this.gameField) {
 			this.clearField();
-			this.gameField.classList.add(LEVELS[lvl - 1].class);
+			this.gameField.classList.add(LEVELS[currentLevel - 1].class);
 			const road = document.createElement('img');
 			road.classList.add('field__background');
 			road.src = './images/road.png';
 			this.gameField.append(road);
-			const levelProps =  LEVELS[lvl - 1];
+			const levelProps =  LEVELS[currentLevel - 1];
 			const objectsArray = levelProps.objects;
 			for (const car in objectsArray) {
 				const carImage = document.createElement('img');
