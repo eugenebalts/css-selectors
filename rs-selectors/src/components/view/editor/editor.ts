@@ -14,14 +14,16 @@ class Editor {
 
 	setListener() {
 		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this));
-		window.addEventListener('keypress', (event) => {
+		this.inputCss?.addEventListener('keypress', (event) => {
 			if (event.keyCode === 13) {
 				this.checkAnswer();
 			}
+			this.inputCss?.focus();
 		});
 	}
 
 	checkAnswer() {
+		this.inputCss?.focus();
 		const currentLevel = variables.currentLevel;
 		const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
 		const objectsToFind = document.querySelectorAll('.to-find');
