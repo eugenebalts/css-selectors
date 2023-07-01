@@ -17,18 +17,21 @@ class Editor {
 	}
 
 	checkAnswer() {
-		const lvl = Number(variables.currentLevel);
-		const rightAnswer = LEVELS[lvl - 1].rightAnswer;
+		const currentLevel = variables.currentLevel;
+		const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
 		const objectsToFind = document.querySelectorAll('.to-find');
 		if (this.inputCss) {
 			if (this.inputCss.value === rightAnswer) {
-				if (variables.maxLevel >= lvl + 1) {
-					console.log(variables.currentLevel);
-					variables.currentLevel = String(lvl + 1);
-					console.log(variables.currentLevel);
+				if (variables.maxLevel >= currentLevel + 1) {
+					variables.currentLevel = currentLevel + 1;
+
+					this.updateLocalStorage(currentLevel);
+
 				} else {
-					variables.currentLevel = String(1);
+					this.updateLocalStorage(currentLevel);
+					variables.currentLevel = 1;
 				}
+
 				objectsToFind.forEach((item) => {
 					item.classList.remove('to-find');
 					if (item.classList.contains('vehicle_top-line')) {
@@ -39,7 +42,7 @@ class Editor {
 				});
 				setTimeout(() => {
 					this.GameField.initialField();
-					this.LevelControl.writeLevels();
+					this.LevelControl.updateLevels();
 				}, 1500);
 				this.inputCss.value = '';
 			} else {
@@ -49,6 +52,16 @@ class Editor {
 				}, 300);
 			}
 		}
+	}
+
+	updateLocalStorage(level: number) {
+		const passedLevels = variables.passedLevels;
+		if (!passedLevels.includes(level)) {
+			variables.passedLevels.push(level);
+			localStorage.setItem('passed', JSON.stringify(variables.passedLevels));
+		}
+
+		localStorage.setItem('currentLevel', JSON.stringify(level + 1));
 	}
 }
 
