@@ -14,6 +14,11 @@ class Editor {
 
 	setListener() {
 		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this));
+		window.addEventListener('keypress', (event) => {
+			if (event.keyCode === 13) {
+				this.checkAnswer();
+			}
+		});
 	}
 
 	checkAnswer() {
@@ -28,7 +33,7 @@ class Editor {
 					this.updateLocalStorage(currentLevel);
 
 				} else {
-					this.updateLocalStorage(currentLevel);
+					this.updateLocalStorage(currentLevel, 'restart');
 					variables.currentLevel = 1;
 				}
 
@@ -54,7 +59,7 @@ class Editor {
 		}
 	}
 
-	updateLocalStorage(level: number) {
+	updateLocalStorage(level: number, method = 'standart') {
 		const passedLevels = variables.passedLevels;
 		if (!passedLevels.includes(level)) {
 			variables.passedLevels.push(level);
@@ -62,6 +67,10 @@ class Editor {
 		}
 
 		localStorage.setItem('currentLevel', JSON.stringify(level + 1));
+
+		if (method === 'restart') {
+			localStorage.setItem('currentLevel', JSON.stringify(1));
+		}
 	}
 }
 
