@@ -3,7 +3,7 @@ const lsGetCurrent = localStorage.getItem('currentLevel');
 
 const variables: IVars = {
 	currentLevel: lsGetCurrent ? JSON.parse(lsGetCurrent) : 1,
-	maxLevel: 4,
+	maxLevel: 10,
 	passedLevels: lsGetPassed ? [...JSON.parse(lsGetPassed)] : [],
 };
 
