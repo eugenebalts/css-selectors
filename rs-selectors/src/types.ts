@@ -12,7 +12,10 @@ interface ILevel {
 interface ICar {
 	image: string,
 	row: string,
-	class: string
+	classGeneral: string,
+	classAdditional?: string,
+	id?: string,
+
 }
 
 export {Levels};

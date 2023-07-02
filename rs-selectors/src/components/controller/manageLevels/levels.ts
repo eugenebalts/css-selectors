@@ -1,4 +1,5 @@
 import {Levels} from '../../../types';
+import './levels.css';
 
 const LEVELS: Levels = [
 	{
@@ -9,12 +10,12 @@ const LEVELS: Levels = [
 			{
 				image: 'car-green1',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 			{
 				image: 'car-red1',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			}
 		],
 		objectsToFind: ['car-green1', 'car-red1'],
@@ -29,17 +30,17 @@ const LEVELS: Levels = [
 			{
 				image: 'car-green1',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 			{
 				image: 'car-red2',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 			{
 				image: 'scooter1',
 				row: 'vehicle_down-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 		],
 		objectsToFind: ['scooter1'],
@@ -53,17 +54,17 @@ const LEVELS: Levels = [
 			{
 				image: 'car-green1',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 			{
 				image: 'car-red2',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 			{
 				image: 'car-police1',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 		],
 		objectsToFind: ['car-police1'],
@@ -77,17 +78,17 @@ const LEVELS: Levels = [
 			{
 				image: 'car-red2',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 			{
 				image: 'car-truck1',
 				row: 'vehicle_down-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 			{
 				image: 'car-green1',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 		],
 		objectsToFind: ['car-green1'],
@@ -95,27 +96,76 @@ const LEVELS: Levels = [
 	},
 	{
 		level: 5,
-		name: '#id A',
-		class: 'level-4',
+		name: '.classname',
+		class: 'level-5',
 		objects: [
 			{
-				image: 'car-truck1',
+				image: 'car-red1',
 				row: 'vehicle_top-line',
-				class: 'vehicle'
+				classGeneral: 'vehicle'
 			},
 			{
-				image: 'car-truck1',
-				row: 'vehicle_down-line',
-				class: 'vehicle'
-			},
-			{
-				image: 'car-truck1',
-				row: 'vehicle_down-line',
-				class: 'vehicle'
+				image: 'car-green1',
+				row: 'vehicle_top-line',
+				classGeneral: 'vehicle'
 			},
 		],
-		objectsToFind: ['car-green1'],	
-		rightAnswer: 'truck car',
+		objectsToFind: ['car-red1'],	
+		rightAnswer: '.red',
+	},
+	{
+		level: 6,
+		name: '#id, .classname',
+		class: 'level-6',
+		objects: [
+			{
+				image: 'car-police1',
+				row: 'vehicle_top-line',
+				classGeneral: 'vehicle',
+				id: 'police',
+			},
+			{
+				image: 'car-green1',
+				row: 'vehicle_top-line',
+				classGeneral: 'vehicle',
+				classAdditional: 'green'
+			},
+			{
+				image: 'car-red2',
+				row: 'vehicle_top-line',
+				classGeneral: 'vehicle',
+				classAdditional: 'red'
+			},
+		],
+		objectsToFind: ['car-police1', 'car-green1'],	
+		rightAnswer: '#police, .green',
+	},
+	{
+		level: 7,
+		name: 'A#id, #id B',
+		class: 'level-6',
+		objects: [
+			{
+				image: 'car-police1',
+				row: 'vehicle_top-line',
+				classGeneral: 'vehicle',
+				id: 'police',
+			},
+			{
+				image: 'car-green1',
+				row: 'vehicle_top-line',
+				classGeneral: 'vehicle',
+				classAdditional: 'green'
+			},
+			{
+				image: 'car-red2',
+				row: 'vehicle_top-line',
+				classGeneral: 'vehicle',
+				classAdditional: 'red'
+			},
+		],
+		objectsToFind: ['car-police1', 'car-green1'],	
+		rightAnswer: '#police, .green',
 	},
 ];
 

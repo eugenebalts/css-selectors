@@ -23,7 +23,8 @@ export default class GameField {
 			for (const car in objectsArray) {
 				const carImage = document.createElement('img');
 				carImage.src = `./images/${objectsArray[car].image}.png`;
-				carImage.classList.add(`${objectsArray[car].row}`, `${objectsArray[car].class}`, `${objectsArray[car].image}`);
+				carImage.classList.add(`${objectsArray[car].classGeneral}`, `${objectsArray[car].row}`, `${objectsArray[car].image}`);
+				if (objectsArray[car].classAdditional) carImage.classList.add(`${objectsArray[car].classAdditional}`);
 				if (levelProps.objectsToFind.includes(objectsArray[car].image)) {
 					carImage.classList.add('to-find');
 				}
