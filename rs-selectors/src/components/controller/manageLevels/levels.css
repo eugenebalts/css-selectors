@@ -1,7 +1,3 @@
-.car-truck1 {
-	width: 250px;
-}
-
 .level-1 .car-green1 {
 	left: 50px;
 }
@@ -38,7 +34,7 @@
 }
 
 
-.level-4 .car-truck1 {
+.level-4 .car-truck2 {
 	width: 250px;
 	left: 65px;
 }
@@ -74,3 +70,101 @@
 .level-6 .car-green1 {
 	left: 250px;
 }
+
+.level-7 .car-police1 {
+	left: 10px;
+	bottom: 60px;
+}
+
+.level-7 .car-truck2 {
+	left: 50px;
+	bottom: 15px;
+}
+
+.level-7 .car-red2 {
+	right: 40px;
+}
+
+.level-8 .car-truck1 {
+	left: -10px;
+}
+
+.level-8 .car-red1 {
+	bottom: 25px;
+	left: 30px;
+	width: 90px;
+}
+
+.level-8 .car-truck2 {
+	right: -0px;
+}
+
+
+.level-9 .car-truck1 {
+	right: -15px;
+	bottom: 25px;
+}
+
+.level-9 .car-red1 {
+	bottom: 40px;
+	right: 85px;
+	width: 100px;
+}
+
+.level-9 .car-truck2 {
+	left: -5px;
+}
+
+.level-10 .car-red1 {
+	bottom: 25px;
+	right: 105px;
+	width: 100px;
+}
+
+.level-10 .car-truck2 {
+	right: 10px;
+}
+
+.level-10 .car-police1 {
+	left: 100px;
+}
+
+
+.level-11 .car-red1 {
+	left: 30px;
+}
+
+.level-11 .car-police1 {
+	right: 10px;
+}
+
+.level-11 .car-truck2 {
+	left: 60px;
+}
+
+.level-12 .car-truck2 {
+	left: 60px;
+}
+
+.level-12 .car-red2 {
+	left: 100px;
+	bottom: 15px;
+}
+
+.level-12 .scooter1 {
+	right: 30px;
+	bottom: 0px;
+}
+
+.level-12 .car-red1 {
+	right: 70px;
+}
+
+.level-12 .car-police1 {
+	left: 20px;
+	bottom: 60px;
+}
+
+
+
+

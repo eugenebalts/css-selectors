@@ -39,6 +39,18 @@
     bottom: 10px;
 }
 
+.car-truck1 {
+	width: 230px;
+}
+
+.car-truck2 {
+	width: 230px;
+}
+
+.car-red1 {
+    width: 100px;
+}
+
 .to-find {
     transform-origin: bottom;
     animation: to-find-start .5s ease-in, to-find-end 1s infinite;
