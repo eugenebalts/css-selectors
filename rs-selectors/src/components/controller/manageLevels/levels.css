@@ -1,0 +1,76 @@
+.car-truck1 {
+	width: 250px;
+}
+
+.level-1 .car-green1 {
+	left: 50px;
+}
+
+.level-1 .car-red1 {
+	left: 250px;
+}
+
+
+.level-2 .car-green1 {
+	left: 350px;
+}
+
+.level-2 .car-red2 {
+	left: 100px;
+}
+
+.level-2 .scooter1 {
+	left: 150px;
+}
+
+
+.level-3 .car-green1 {
+	left: 120px;
+}
+
+.level-3 .car-red2 {
+	left: 300px;
+}
+
+.level-3 .car-police1 {
+	left: 200px;
+	bottom: 30px;
+}
+
+
+.level-4 .car-truck1 {
+	width: 250px;
+	left: 65px;
+}
+
+.level-4 .car-green1 {
+	bottom: 27px;
+	left: 115px;
+}
+
+.level-4 .car-red2 {
+	left: 350px;
+}
+
+
+.level-5 .car-red1 {
+	left: 50px;
+}
+
+.level-5 .car-green1 {
+	left: 300px;
+}
+
+
+.level-6 .car-police1 {
+	left: 100px;
+	bottom: 20px;
+}
+
+.level-6 .car-red2 {
+	left: 50px;
+}
+
+.level-6 .car-green1 {
+	left: 250px;
+}
