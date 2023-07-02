@@ -1,9 +1,11 @@
 import './level-controls.css';
 import LEVELS from '../../controller/manageLevels//levels';
 import variables from '../../controller/manageLevels/variables';
+import GameField from '../game-field/game-field';
 
 export default class LevelControl {
     sidebar: HTMLDivElement | null = document.querySelector('.sidebar');
+    gameField = new GameField();
 
     writeLevels() {
         const currentLevel = variables.currentLevel;
@@ -14,6 +16,7 @@ export default class LevelControl {
         for (const level of LEVELS) {
             const levelTitle: HTMLParagraphElement = document.createElement('p');
             levelTitle.classList.add('levels__title',  `levels__title_${level.level}`);
+            levelTitle.setAttribute('level', String(level.level));
             levelTitle.innerHTML = `<span>Level ${level.level}</span> ${level.name}`;
             
             if (currentLevel) {
@@ -27,6 +30,25 @@ export default class LevelControl {
             levelsWrapper.append(levelTitle);
         }
         this.sidebar?.append(levelsWrapper);
+        this.setListener();
+    }
+
+    private setListener() {
+        const navItems: NodeListOf<HTMLElement> = document.querySelectorAll('.levels__title');
+        navItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                const levelAttribute = item.getAttribute('level');
+                const newLevel = Number(levelAttribute);
+                
+                // TODO REFACTOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                variables.currentLevel = newLevel;
+                localStorage.setItem('currentLevel', JSON.stringify(newLevel));
+                this.updateLevels();
+
+                this.gameField.clearField();
+                this.gameField.initialField();
+            });
+        });
     }
 
     isPassedLevel(level: number, el: HTMLElement) {
