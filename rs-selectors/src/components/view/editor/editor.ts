@@ -28,7 +28,7 @@ class Editor {
 		const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
 		const objectsToFind = document.querySelectorAll('.to-find');
 		if (this.inputCss) {
-			if (this.inputCss.value === rightAnswer) {
+			if (this.inputCss.value.trim() === rightAnswer) {
 				if (variables.maxLevel >= currentLevel + 1) {
 					variables.currentLevel = currentLevel + 1;
 
@@ -61,7 +61,7 @@ class Editor {
 		}
 	}
 
-	updateLocalStorage(level: number, method = 'standart') {
+	updateLocalStorage(level: number, method = 'standard') {
 		const passedLevels = variables.passedLevels;
 		if (!passedLevels.includes(level)) {
 			variables.passedLevels.push(level);
