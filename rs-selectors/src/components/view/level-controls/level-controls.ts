@@ -6,6 +6,19 @@ import GameField from '../game-field/game-field';
 export default class LevelControl {
     sidebar: HTMLDivElement | null = document.querySelector('.sidebar');
     gameField = new GameField();
+    resetBtn: HTMLButtonElement | null = document.querySelector('.sidebar__reset-btn');
+
+    resetProgress() {
+
+        localStorage.setItem('currentLevel', JSON.stringify(1));
+        variables.currentLevel = 1;
+
+        variables.passedLevels = [];
+        localStorage.setItem('passed', JSON.stringify(variables.passedLevels));
+
+        this.gameField.initialField();
+        this.updateLevels();
+    }
 
     writeLevels() {
         const currentLevel = variables.currentLevel;
@@ -49,6 +62,9 @@ export default class LevelControl {
                 this.gameField.initialField();
             });
         });
+        if (this.resetBtn) {
+            this.resetBtn.addEventListener('click', this.resetProgress.bind(this));
+        }
     }
 
     isPassedLevel(level: number, el: HTMLElement) {
@@ -61,6 +77,7 @@ export default class LevelControl {
 
     updateLevels() {
         const currentLevel = variables.currentLevel;
+        const passedLevels = variables.passedLevels;
         const levelsTitle = document.querySelectorAll('.levels__title');
         levelsTitle.forEach((item, index) => {
             if (item.classList.contains('levels__title_active')) {
@@ -72,6 +89,9 @@ export default class LevelControl {
 
             if (item.classList.contains(`levels__title_${currentLevel}`)) {
                 this.isPassedLevel(currentLevel - 1, levelsTitle[index - 1] as HTMLElement);
+            }
+            if (item.classList.contains('levels__title_passed')) {
+                if (!((index + 1) in passedLevels)) item.classList.remove('levels__title_passed');
             }
         });
     }

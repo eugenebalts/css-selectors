@@ -8,7 +8,7 @@
 
 
 .level-2 .car-green1 {
-	left: 350px;
+	right: 100px;
 }
 
 .level-2 .car-red2 {
@@ -36,16 +36,16 @@
 
 .level-4 .car-truck2 {
 	width: 250px;
-	left: 65px;
+	left: 35px;
 }
 
 .level-4 .car-green1 {
-	bottom: 27px;
-	left: 115px;
+	bottom: 45px;
+	left: 85px;
 }
 
 .level-4 .car-red2 {
-	left: 350px;
+	right: 50px;
 }
 
 
@@ -77,7 +77,7 @@
 }
 
 .level-7 .car-truck2 {
-	left: 50px;
+	left: 80px;
 	bottom: 15px;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .level-8 .car-red1 {
-	bottom: 25px;
+	bottom: 45px;
 	left: 30px;
 	width: 90px;
 }
@@ -106,7 +106,7 @@
 }
 
 .level-9 .car-red1 {
-	bottom: 40px;
+	bottom: 52px;
 	right: 85px;
 	width: 100px;
 }
@@ -116,7 +116,7 @@
 }
 
 .level-10 .car-red1 {
-	bottom: 25px;
+	bottom: 45px;
 	right: 105px;
 	width: 100px;
 }
@@ -143,17 +143,18 @@
 }
 
 .level-12 .car-truck2 {
+	z-index: 999;
 	left: 60px;
 }
 
 .level-12 .car-red2 {
+	z-index: 1000;
 	left: 100px;
-	bottom: 15px;
+	bottom: 40px;
 }
 
 .level-12 .scooter1 {
-	right: 30px;
-	bottom: 0px;
+	right: 10px;
 }
 
 .level-12 .car-red1 {
@@ -161,7 +162,7 @@
 }
 
 .level-12 .car-police1 {
-	left: 20px;
+	left: 5px;
 	bottom: 60px;
 }
 

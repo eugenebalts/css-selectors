@@ -17,11 +17,56 @@
     z-index: 0;
 }
 
-.vehicle {
+.vehicle__container {
     position: absolute;
     width: 80px;
-    transition: all .5s ease-in;
+    cursor: pointer;
+    transition: all .2s linear;
 }
+
+.vehicle__container:hover.vehicle__container::before {
+    position: absolute;
+    padding: 5px;
+    display: block;
+    content: attr(data-tag);
+    min-width: 150px;
+    text-align: center;
+    word-wrap: break-word;
+    background-color: white;
+    color: #aaa;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    top: -50px;
+    left: -20px;
+    z-index: 100000;
+}
+
+.mark__visible .vehicle__mark {
+    display: block;
+}
+.vehicle {
+    width: 100%;
+    transition: all .5s ease-in, filter .1s ease-in;
+}
+
+.vehicle__mark {
+    display: none;
+    position: absolute;
+    padding: 5px;
+    width: 200px;
+    text-align: center;
+    word-wrap: break-word;
+    background-color: white;
+    color: #aaa;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    top: -60px;
+    left: -20px;
+    z-index: 10000;
+}
+
+.vehicle:hover {
+    filter: brightness(150%);
+}
+
 
 .vehicle_fined-top {
     animation: fined-top 1.5s infinite;
@@ -32,11 +77,11 @@
 }
 
 .vehicle_top-line {
-    bottom: 50px;
+    bottom: 60px;
 }
 
 .vehicle_down-line {
-    bottom: 10px;
+    bottom: 15px;
 }
 
 .car-truck1 {
@@ -49,6 +94,7 @@
 
 .car-red1 {
     width: 100px;
+    z-index: 10;
 }
 
 .to-find {

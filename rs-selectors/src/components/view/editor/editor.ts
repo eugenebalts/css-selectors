@@ -11,6 +11,7 @@ class Editor {
 	GameField = new GameField();
 	LevelControl = new LevelControl();
 	level = variables.currentLevel;
+	helpBtn: HTMLButtonElement | null = document.querySelector('.editor__help-btn');
 
 	setListener() {
 		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this));
@@ -20,6 +21,20 @@ class Editor {
 			}
 			this.inputCss?.focus();
 		});
+		this.helpBtn?.addEventListener('click', this.help.bind(this));
+	}
+
+	help() {
+		if (this.inputCss) {
+			this.inputCss.value = '';
+			const currentLevel = variables.currentLevel;
+			const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
+			rightAnswer?.split('').forEach((item, i) => {
+				setTimeout(() => {
+					if (this.inputCss) this.inputCss.value += item;
+				},i * 200);
+			});
+		}
 	}
 
 	checkAnswer() {

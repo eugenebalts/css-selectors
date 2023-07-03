@@ -7,6 +7,7 @@ interface ILevel {
 	objects: Array<ICar>,
 	objectsToFind: Array<string>,
 	rightAnswer: string,
+	find: string,
 }
 
 interface ICar {
@@ -15,6 +16,7 @@ interface ICar {
 	classGeneral: string,
 	classAdditional?: string,
 	id?: string,
+	tag?: string
 
 }
 

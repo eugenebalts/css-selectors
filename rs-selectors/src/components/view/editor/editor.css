@@ -90,7 +90,13 @@
 	right: 5px;
 	top: 5px;
 	width: 15%;
+	font-size: 12px;
+	text-align: center;
 	cursor: pointer;
+}
+
+.editor__help-btn {
+	width: 100%;
 }
 
 @keyframes input {
