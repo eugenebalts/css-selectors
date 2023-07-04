@@ -50,12 +50,19 @@
 	font-weight: 700;
 	top: 0;
 	left: -20px;
-	
 }
+
+.levels__title_999:before {
+	display: none;
+}
+
+.levels__title_999::after {
+	display: none;
+}
+
 	
 .levels__title_passed:before {
-	color: rgba(159, 255, 115, .8);;
-	
+	color: rgba(159, 255, 115, .8);
 }
 
 .levels__title span {

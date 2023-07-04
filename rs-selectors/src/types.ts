@@ -6,7 +6,7 @@ interface ILevel {
 	class: string,
 	objects: Array<ICar>,
 	objectsToFind: Array<string>,
-	rightAnswer: string,
+	rightAnswer: Array<string>,
 	find: string,
 }
 

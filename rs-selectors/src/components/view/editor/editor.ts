@@ -29,7 +29,7 @@ class Editor {
 			this.inputCss.value = '';
 			const currentLevel = variables.currentLevel;
 			const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
-			rightAnswer?.split('').forEach((item, i) => {
+			rightAnswer[0]?.split('').forEach((item, i) => {
 				setTimeout(() => {
 					if (this.inputCss) this.inputCss.value += item;
 				},i * 200);
@@ -43,7 +43,7 @@ class Editor {
 		const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
 		const objectsToFind = document.querySelectorAll('.to-find');
 		if (this.inputCss) {
-			if (this.inputCss.value.trim() === rightAnswer || (currentLevel === variables.maxLevel && this.inputCss.value)) {
+			if (rightAnswer.includes(this.inputCss.value.trim()) || (currentLevel === variables.maxLevel)) {
 				if (variables.maxLevel >= currentLevel + 1) {
 					variables.currentLevel = currentLevel + 1;
 					this.updateLocalStorage(currentLevel);
