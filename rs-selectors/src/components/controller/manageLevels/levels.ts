@@ -51,6 +51,11 @@ const objects = {
 		classAdditional: 'truck',
 		tag: '<truck owner="Government">',
 	},
+	'congratulations': {
+		image: 'congratulations',
+		row: 'center',
+		classGeneral: 'congratulations',
+	},
 	
 };
 
@@ -207,6 +212,17 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['car-red1', 'car-police1', 'car-truck2', 'scooter1', 'car-red2'],	
 		rightAnswer: '*',
+		find: 'all elements'
+	},
+	{
+		level: 13,
+		name: 'Congratulations',
+		class: 'level-12',
+		objects: [
+			objects['congratulations'],
+		],
+		objectsToFind: ['congratulations'],	
+		rightAnswer: 'restart',
 		find: 'all elements'
 	},
 ];

@@ -43,15 +43,13 @@ class Editor {
 		const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
 		const objectsToFind = document.querySelectorAll('.to-find');
 		if (this.inputCss) {
-			if (this.inputCss.value.trim() === rightAnswer) {
+			if (this.inputCss.value.trim() === rightAnswer || (currentLevel === variables.maxLevel && this.inputCss.value)) {
 				if (variables.maxLevel >= currentLevel + 1) {
 					variables.currentLevel = currentLevel + 1;
-
 					this.updateLocalStorage(currentLevel);
-
 				} else {
-					this.updateLocalStorage(currentLevel, 'restart');
 					variables.currentLevel = 1;
+					this.updateLocalStorage(currentLevel, 'restart');
 				}
 
 				objectsToFind.forEach((item) => {

@@ -27,7 +27,8 @@ export default class LevelControl {
         const levelsWrapper: HTMLDivElement = document.createElement('div');
         levelsWrapper.classList.add('levels-control');
         for (const level of LEVELS) {
-            const levelTitle: HTMLParagraphElement = document.createElement('p');
+            if (level.level !== variables.maxLevel) {
+                const levelTitle: HTMLParagraphElement = document.createElement('p');
             levelTitle.classList.add('levels__title',  `levels__title_${level.level}`);
             levelTitle.setAttribute('level', String(level.level));
             levelTitle.innerHTML = `<span>Level ${level.level}</span> ${level.name}`;
@@ -44,6 +45,8 @@ export default class LevelControl {
         }
         this.sidebar?.append(levelsWrapper);
         this.setListener();
+            }
+            
     }
 
     private setListener() {
