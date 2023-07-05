@@ -17,7 +17,7 @@ class Editor {
 	setListener() {
 		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this));
 		this.inputCss?.addEventListener('keypress', (event) => {
-			if (event.keyCode === 13) {
+			if (event.key === 'Enter') {
 				this.checkAnswer();
 			}
 			this.inputCss?.focus();
@@ -34,6 +34,7 @@ class Editor {
 			rightAnswer[0]?.split('').forEach((item, i) => {
 				setTimeout(() => {
 					if (this.inputCss) this.inputCss.value += item;
+					this.inputCss?.focus();
 				},i * 100);
 			});
 			setTimeout(() => {
