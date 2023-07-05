@@ -30,11 +30,16 @@ class Editor {
 			this.inputCss.value = '';
 			const currentLevel = variables.currentLevel;
 			const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
+			if (this.helpBtn) this.helpBtn.disabled = true;
 			rightAnswer[0]?.split('').forEach((item, i) => {
 				setTimeout(() => {
 					if (this.inputCss) this.inputCss.value += item;
 				},i * 100);
 			});
+			setTimeout(() => {
+				if (this.helpBtn) this.helpBtn.disabled = false;
+			}, 3000);
+
 			variables.isHintUsed = true;
 		}
 	}
