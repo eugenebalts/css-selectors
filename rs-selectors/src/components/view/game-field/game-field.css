@@ -24,7 +24,7 @@
     transition: all .2s linear;
 }
 
-.vehicle__container:hover.vehicle__container::before {
+.vehicle__container:hover.vehicle__container::before, .vehicle__container_hovered:before {
     position: absolute;
     padding: 5px;
     display: block;
@@ -37,7 +37,6 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     top: -50px;
     left: -20px;
-    z-index: 100000;
 }
 
 .mark__visible .vehicle__mark {
@@ -67,6 +66,9 @@
     filter: brightness(150%);
 }
 
+.vehicle__container_hovered .vehicle {
+    filter: brightness(150%);
+}
 
 .vehicle_fined-top {
     animation: fined-top 1.5s infinite;

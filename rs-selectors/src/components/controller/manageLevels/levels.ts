@@ -67,7 +67,8 @@ const LEVELS: Levels = [
 		objects: [objects['car-green1'], objects['car-red1']],
 		objectsToFind: ['car-green1', 'car-red1'],
 		rightAnswer: ['car'],
-		find: 'by Tag'
+		find: 'by Tag',
+		code: [`${objects['car-green1'].tag}`, `${objects['car-red1'].tag}`],
 	},
 	{
 		level: 2,
@@ -80,7 +81,8 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['scooter1'],
 		rightAnswer: ['scooter'],
-		find: 'by Tag'
+		find: 'by Tag',
+		code: [`${objects['car-green1'].tag}`, `${objects['car-red2'].tag}`, `${objects['scooter1'].tag}`],
 	},
 	{
 		level: 3,
@@ -91,7 +93,8 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['car-police1'],
 		rightAnswer: ['#police'],
-		find: 'by ID'
+		find: 'by ID',
+		code: [`${objects['car-green1'].tag}`, `${objects['car-red2'].tag}`, `${objects['car-police1'].tag}`],
 	},
 	{
 		level: 4,
@@ -104,7 +107,8 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['car-green1'],
 		rightAnswer: ['truck car'],
-		find: 'by tag inside tag'
+		find: 'by tag inside tag',
+		code: [`${objects['car-red2'].tag}`, `${objects['car-truck2'].tag}`, `\u00A0\u00A0\u00A0\u00A0${objects['car-green1'].tag}`],
 	},
 	{
 		level: 5,
@@ -116,7 +120,8 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['car-red1'],	
 		rightAnswer: ['.red'],
-		find: 'by class'
+		find: 'by class',
+		code: [`${objects['car-red1'].tag}`, `${objects['car-green1'].tag}`],
 	},
 	{
 		level: 6,
@@ -129,8 +134,9 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['car-police1', 'car-green1'],	
 		rightAnswer: ['#police, .green', '.green, #police', '#police,.green', '.green,#police'],
-		find: 'police and green cars'
-	},
+		find: 'by #id, .class',
+		code: [`${objects['car-red2'].tag}`, `${objects['car-green1'].tag}`, `${objects['car-police1'].tag}`],
+	},	
 	{
 		level: 7,
 		name: '#id ~ A',
@@ -142,34 +148,37 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['car-truck2'],	
 		rightAnswer: ['#police ~ truck'],
-		find: 'neighbor'
+		find: 'neighbor by id and tag',
+		code: [`${objects['car-police1'].tag}`, `${objects['car-truck2'].tag}`, `${objects['car-red2'].tag}`],
 	},
 	{
 		level: 8,
 		name: 'nth-child(n)',
 		class: 'level-8',
 		objects: [
-			objects['car-red1'],
 			objects['car-truck1'],
+			objects['car-red1'],
 			objects['car-truck2'],
 		],
 		objectsToFind: ['car-truck2'],	
 		rightAnswer: ['truck:nth-child(2)'],
-		find: 'second truck'
+		find: 'second truck',
+		code: [`${objects['car-truck1'].tag}`, `\u00A0\u00A0\u00A0\u00A0${objects['car-red1'].tag}`, `${objects['car-red1'].tag}`],
 	},
 	{
 		level: 9,
 		name: ':empty',
 		class: 'level-9',
 		objects: [
-			objects['car-red1'],
-			objects['car-truck1'],
 			objects['car-truck2'],
+			objects['car-truck1'],
+			objects['car-red1'],
 			
 		],
 		objectsToFind: ['car-truck2'],	
-		rightAnswer: ['truck:empty'],
-		find: 'empty truck'
+		rightAnswer: ['truck:empty', '[owner="Government"]',],
+		find: 'empty truck by tag using :empty',
+		code: [`${objects['car-truck2'].tag}`, `${objects['car-truck1'].tag}`, `\u00A0\u00A0\u00A0\u00A0${objects['car-red1'].tag}`],
 	},
 	{
 		level: 10,
@@ -183,7 +192,8 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['car-red1'],	
 		rightAnswer: ['[private]'],
-		find: 'attribute name'
+		find: 'attribute name',
+		code: [`${objects['car-truck2'].tag}`, `\u00A0\u00A0\u00A0\u00A0${objects['car-red1'].tag}`, `${objects['car-police1'].tag}`],
 	},
 	{
 		level: 11,
@@ -196,8 +206,11 @@ const LEVELS: Levels = [
 			
 		],
 		objectsToFind: ['car-police1', 'car-truck2'],	
-		rightAnswer: ['[owner="Government"]'],
-		find: 'attribute with the value'
+		rightAnswer: ['[owner="Government"]', '[owner= "Government"]', '[owner ="Government"]',
+		'[owner = "Government"]', '[owner=\'Government\']', '[owner= \'Government\']',
+		'[owner= \'Government\']', '[owner =\'Government\']', '[owner = \'Government\']'],
+		find: 'attribute with the value',
+		code: [`${objects['car-red1'].tag}`, `${objects['car-truck2'].tag}`, `${objects['car-police1'].tag}`],
 	},
 	{
 		level: 12,
@@ -212,7 +225,8 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['car-red1', 'car-police1', 'car-truck2', 'scooter1', 'car-red2'],	
 		rightAnswer: ['*'],
-		find: 'all elements'
+		find: 'all elements',
+		code: [`${objects['car-police1'].tag}`, `${objects['car-red1'].tag}`, `${objects['car-truck2'].tag}`, `\u00A0\u00A0\u00A0\u00A0${objects['car-red2'].tag}`, `${objects['scooter1'].tag}`],
 	},
 	{
 		level: 999,
@@ -223,7 +237,8 @@ const LEVELS: Levels = [
 		],
 		objectsToFind: ['congratulations'],	
 		rightAnswer: ['restart'],
-		find: 'all elements'
+		find: '... Bro, you pass this game',
+		code: ['Sheesh'],
 	},
 ];
 

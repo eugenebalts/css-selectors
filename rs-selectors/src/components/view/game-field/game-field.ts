@@ -5,6 +5,8 @@ import variables from '../../controller/manageLevels/variables';
 export default class GameField {
 	gameField: HTMLDivElement | null = document.querySelector('.field');
 	mainTitle: HTMLHeadElement | null = document.querySelector('.main__title');
+	inputHint: Element | null = document.querySelectorAll('.input__hint')[1];
+	// editor = new Editor();
 
 	initialField() {
 		const currentLevel = variables.currentLevel;
@@ -45,24 +47,89 @@ export default class GameField {
 				const marker = document.createElement('div');
 				marker.classList.add('vehicle__mark');
 				if (objectsArray[car].tag) marker.textContent = objectsArray[car].tag as string;
-
-				// carContainer.addEventListener('mouseover', (event) => {
-				// 	if (event.target instanceof HTMLElement) {
-				// 		event.target.classList.add('mark__visible');
-				// 	}
-				// });
-
-				// carContainer.addEventListener('mouseleave', (event) => {
-				// 	if (event.target instanceof HTMLElement) {
-				// 		event.target.classList.remove('mark__visible');
-				// 	}
-				// });
-
 				carContainer.append(marker);
 				carContainer.append(carImage);
 				this.gameField.append(carContainer);
+				
+
+				carContainer.addEventListener('mouseover', (event) => {
+					const HTMLStrings = document.querySelectorAll('.html-string');
+						HTMLStrings.forEach((string) => {
+							if (event.target instanceof HTMLElement) {
+								if (event.target.classList.contains('vehicle__container')) {
+									if (event.target.getAttribute('data-connect') === string.getAttribute('data-connect')) {
+										string.classList.add('html-string_hovered');
+									}
+								} else if (event.target.closest('.vehicle__container')) {
+									if (event.target.closest('[data-connect]')?.getAttribute('data-connect') === string.getAttribute('data-connect')) {
+										string.classList.add('html-string_hovered');
+									}
+								}
+							}
+						});
+				});
+
+				carContainer.addEventListener('mouseleave', (event) => {
+					const HTMLStrings = document.querySelectorAll('.html-string');
+						HTMLStrings.forEach((string) => {
+							if (event.target instanceof HTMLElement) {
+								if (event.target.classList.contains('vehicle__container')) {
+									if (event.target.getAttribute('data-connect') === string.getAttribute('data-connect')) {
+										string.classList.remove('html-string_hovered');
+									}
+								} else if (event.target.closest('.vehicle__container')) {
+									if (event.target.closest('[data-connect]')?.getAttribute('data-connect') === string.getAttribute('data-connect')) {
+										string.classList.remove('html-string_hovered');
+									}
+								}
+							}
+						});
+				});
 			}
-			
+		}
+		this.writeHTML();
+	}
+
+	writeHTML() {
+		const currentLevel = variables.currentLevel;
+		const levelProps =  LEVELS[currentLevel - 1];
+		const HTMLCode: Array<string> = levelProps.code;
+		const carsArray: NodeListOf<HTMLDivElement> | null = document.querySelectorAll('.vehicle__container');
+		// const object = levelProps.objects;
+
+		if (this.inputHint instanceof HTMLDivElement) {
+			this.inputHint.innerHTML = '';
+			HTMLCode.forEach((string, index) => {
+				const carContainer: HTMLDivElement | null = document.querySelector(`.${levelProps.objects[index].image}`);
+				const htmlString = document.createElement('div');
+				htmlString.classList.add('html-string');
+				htmlString.setAttribute('data-connect', String(index));
+				if (carContainer) carContainer.setAttribute('data-connect', String(index));
+				htmlString.textContent = `${string}`;
+				htmlString.addEventListener('mouseover', (event) => {
+					carsArray.forEach((car) => {
+						if (event.target instanceof HTMLDivElement) {
+							event.target.classList.add('html-string_hovered');
+							if (event.target.getAttribute('data-connect') === car.getAttribute('data-connect')) {
+								car.classList.add('vehicle__container_hovered');
+							}
+						}
+					});
+				});
+				htmlString.addEventListener('mouseleave', (event) => {
+					carsArray.forEach((car) => {
+						if (event.target instanceof HTMLDivElement) {
+							event.target.classList.remove('html-string_hovered');
+							if (event.target.getAttribute('data-connect') === car.getAttribute('data-connect')) {
+								car.classList.remove('vehicle__container_hovered');
+							}
+						}
+					});
+				});
+				this.inputHint?.append(htmlString);
+			});
+
+			// TODO inputHint instead htmlString
 		}
 	}
 

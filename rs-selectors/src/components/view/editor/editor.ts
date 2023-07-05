@@ -12,6 +12,7 @@ class Editor {
 	LevelControl = new LevelControl();
 	level = variables.currentLevel;
 	helpBtn: HTMLButtonElement | null = document.querySelector('.editor__help-btn');
+	inputHint: Element | null = document.querySelectorAll('.input__hint')[1];
 
 	setListener() {
 		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this));
@@ -62,8 +63,8 @@ class Editor {
 					}
 				});
 				setTimeout(() => {
-					this.GameField.initialField();
 					this.LevelControl.updateLevels();
+					this.GameField.initialField();
 					variables.isHintUsed = false;
 				}, 1500); 
 				this.inputCss.value = '';

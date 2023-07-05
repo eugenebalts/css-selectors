@@ -99,6 +99,15 @@
 	width: 100%;
 }
 
+.editor__input-wrapper_html {
+	background-color: rgba(0, 0, 0, .3) ;
+	color: #AAA;
+}
+
+.html-string_hovered {
+	color: whitesmoke;
+}
+
 @keyframes input {
 	0% {
 		background-color: transparent;

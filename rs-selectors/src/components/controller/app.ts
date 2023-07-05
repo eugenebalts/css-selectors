@@ -13,5 +13,6 @@ export default class App {
 		this.levelControl.writeLevels();
 		this.gameField.initialField();
 		this.editor.setListener();
+		// this.editor.writeHTML();
 	}
 }

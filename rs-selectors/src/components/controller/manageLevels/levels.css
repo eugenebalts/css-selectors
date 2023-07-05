@@ -119,6 +119,7 @@
 	bottom: 45px;
 	right: 105px;
 	width: 100px;
+	z-index: 14;
 }
 
 .level-10 .car-truck2 {
@@ -143,12 +144,12 @@
 }
 
 .level-12 .car-truck2 {
-	z-index: 999;
+	z-index: 12;
 	left: 60px;
 }
 
 .level-12 .car-red2 {
-	z-index: 999;
+	z-index: 13;
 	left: 100px;
 	bottom: 40px;
 }

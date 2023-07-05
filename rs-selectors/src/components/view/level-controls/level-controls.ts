@@ -2,12 +2,14 @@ import './level-controls.css';
 import LEVELS from '../../controller/manageLevels//levels';
 import variables from '../../controller/manageLevels/variables';
 import GameField from '../game-field/game-field';
+// import Editor from '../editor/editor';
 
 export default class LevelControl {
     sidebar: HTMLDivElement | null = document.querySelector('.sidebar');
     gameField = new GameField();
     resetBtn: HTMLButtonElement | null = document.querySelector('.sidebar__reset-btn');
     burgerMenuBtn: HTMLDivElement | null = document.querySelector('.burger-menu');
+    // editor = new Editor();
 
     resetProgress() {
         localStorage.setItem('currentLevel', JSON.stringify(1));
@@ -15,9 +17,8 @@ export default class LevelControl {
 
         variables.passedLevels = [];
         localStorage.setItem('passed', JSON.stringify(variables.passedLevels));
-
-        this.gameField.initialField();
         this.updateLevels('reset');
+        this.gameField.initialField();
     }
 
     burgerMenu() {
@@ -46,9 +47,7 @@ export default class LevelControl {
                 levelsWrapper.append(levelTitle);
         }
         this.sidebar?.prepend(levelsWrapper);
-        this.setListener();   
-        
-            
+        this.setListener();
     }
 
     private setListener() {
@@ -66,6 +65,7 @@ export default class LevelControl {
 
                     this.gameField.clearField();
                     this.gameField.initialField();
+                    // this.editor.writeHTML();
                 }
             });
         });
