@@ -79,10 +79,19 @@ class Editor {
 
 	updateLocalStorage(level: number, method = 'standard') {
 		const passedLevels = variables.passedLevels;
+		// const passedWithHint = variables.passedWithHint;
 		if (!passedLevels.includes(level)) {
 			variables.passedLevels.push(level);
 			localStorage.setItem('passed', JSON.stringify(variables.passedLevels));
 		}
+
+		if (variables.isHintUsed === true) {
+			variables.passedWithHint.push(level);
+			localStorage.setItem('hinted', JSON.stringify(variables.passedWithHint));
+		}
+
+
+		console.log(localStorage);
 
 		localStorage.setItem('currentLevel', JSON.stringify(level + 1));
 

@@ -42,6 +42,7 @@
 .level-4 .car-green1 {
 	bottom: 45px;
 	left: 85px;
+	z-index: 12;
 }
 
 .level-4 .car-red2 {
@@ -74,6 +75,7 @@
 .level-7 .car-police1 {
 	left: 10px;
 	bottom: 60px;
+	z-index: 12;
 }
 
 .level-7 .car-truck2 {
@@ -133,6 +135,7 @@
 
 .level-11 .car-red1 {
 	left: 30px;
+	z-index: 12;
 }
 
 .level-11 .car-police1 {

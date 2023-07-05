@@ -66,11 +66,11 @@
 	left: -20px;
 }
 
-.levels__title_999:before {
+.levels__title_13:before {
 	display: none;
 }
 
-.levels__title_999::after {
+.levels__title_13::after {
 	display: none;
 }
 

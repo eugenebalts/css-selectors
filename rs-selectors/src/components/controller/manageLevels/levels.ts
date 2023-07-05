@@ -229,7 +229,7 @@ const LEVELS: Levels = [
 		code: [`${objects['car-police1'].tag}`, `${objects['car-red1'].tag}`, `${objects['car-truck2'].tag}`, `\u00A0\u00A0\u00A0\u00A0${objects['car-red2'].tag}`, `${objects['scooter1'].tag}`],
 	},
 	{
-		level: 999,
+		level: 13,
 		name: 'Congratulations',
 		class: 'level-13',
 		objects: [

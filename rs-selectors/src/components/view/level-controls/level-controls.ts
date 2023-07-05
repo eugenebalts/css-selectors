@@ -79,9 +79,14 @@ export default class LevelControl {
 
     isPassedLevel(level: number, el: HTMLElement, hint: boolean) {
         const passedLevels = variables.passedLevels;
+        const passedWithHint = variables.passedWithHint;
 
         if (passedLevels.includes(level)) {
             el.classList.add('levels__title_passed');
+        }
+
+        if (passedWithHint.includes(level)) {
+            el.classList.add('levels__title_hint-used');
         }
 
         if (hint === true) {
