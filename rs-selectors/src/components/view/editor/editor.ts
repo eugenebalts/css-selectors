@@ -34,6 +34,7 @@ class Editor {
 					if (this.inputCss) this.inputCss.value += item;
 				},i * 100);
 			});
+			variables.isHintUsed = true;
 		}
 	}
 
@@ -63,7 +64,8 @@ class Editor {
 				setTimeout(() => {
 					this.GameField.initialField();
 					this.LevelControl.updateLevels();
-				}, 1500);
+					variables.isHintUsed = false;
+				}, 1500); 
 				this.inputCss.value = '';
 			} else {
 				this.editorWrapper?.classList.add('editor__wrapper_incorrect');

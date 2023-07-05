@@ -26,6 +26,7 @@ export default class LevelControl {
 
     writeLevels() {
         const currentLevel = variables.currentLevel;
+        const isHintUsed = variables.isHintUsed;
         console.log(localStorage);
         console.log(currentLevel);
         const levelsWrapper: HTMLDivElement = document.createElement('div');
@@ -41,7 +42,7 @@ export default class LevelControl {
                 } else if (level.level === 1) {
                     levelTitle.classList.add('levels__title_active');
                 }
-                this.isPassedLevel(level.level, levelTitle);
+                this.isPassedLevel(level.level, levelTitle, isHintUsed);
                 levelsWrapper.append(levelTitle);
         }
         this.sidebar?.prepend(levelsWrapper);
@@ -76,17 +77,22 @@ export default class LevelControl {
         }
     }
 
-    isPassedLevel(level: number, el: HTMLElement) {
+    isPassedLevel(level: number, el: HTMLElement, hint: boolean) {
         const passedLevels = variables.passedLevels;
 
         if (passedLevels.includes(level)) {
             el.classList.add('levels__title_passed');
+        }
+
+        if (hint === true) {
+            el.classList.add('levels__title_hint-used');
         }
     }
 
     updateLevels(type = 'update') {
         const currentLevel = variables.currentLevel;
         const passedLevels = variables.passedLevels;
+        const isHintUsed = variables.isHintUsed;
         const levelsTitle = document.querySelectorAll('.levels__title');
         levelsTitle.forEach((item, index) => {
             if (item.classList.contains('levels__title_active')) {
@@ -97,7 +103,7 @@ export default class LevelControl {
             }
 
             if (item.classList.contains(`levels__title_${currentLevel}`)) {
-                this.isPassedLevel(currentLevel - 1, levelsTitle[index - 1] as HTMLElement);
+                this.isPassedLevel(currentLevel - 1, levelsTitle[index - 1] as HTMLElement, isHintUsed);
             }
             if (type === 'reset') {
                 if (item.classList.contains('levels__title_passed')) {
