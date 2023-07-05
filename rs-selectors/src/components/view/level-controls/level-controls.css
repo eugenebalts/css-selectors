@@ -78,6 +78,10 @@
 	color: rgba(159, 255, 115, .8);
 }
 
+.levels__title_passed.levels__title_hint-used:before {
+	color: rgb(255, 51, 0);
+}
+
 .levels__title span {
 	color: rgba(159, 255, 115, .8);
 }
