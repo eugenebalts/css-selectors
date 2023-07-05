@@ -8,7 +8,7 @@
 
 .editor__wrapper {
 	display: flex;
-	width: 80%;
+	width: 100%;
 	background-color: rgba(0, 0, 0, .7);
 }
 
@@ -89,7 +89,7 @@
 	position: absolute;
 	right: 5px;
 	top: 5px;
-	width: 15%;
+	width: 30px;
 	font-size: 12px;
 	text-align: center;
 	cursor: pointer;

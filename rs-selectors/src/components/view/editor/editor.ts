@@ -32,7 +32,7 @@ class Editor {
 			rightAnswer[0]?.split('').forEach((item, i) => {
 				setTimeout(() => {
 					if (this.inputCss) this.inputCss.value += item;
-				},i * 200);
+				},i * 100);
 			});
 		}
 	}

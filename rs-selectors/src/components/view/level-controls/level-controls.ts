@@ -7,6 +7,7 @@ export default class LevelControl {
     sidebar: HTMLDivElement | null = document.querySelector('.sidebar');
     gameField = new GameField();
     resetBtn: HTMLButtonElement | null = document.querySelector('.sidebar__reset-btn');
+    burgerMenuBtn: HTMLDivElement | null = document.querySelector('.burger-menu');
 
     resetProgress() {
         localStorage.setItem('currentLevel', JSON.stringify(1));
@@ -17,6 +18,10 @@ export default class LevelControl {
 
         this.gameField.initialField();
         this.updateLevels('reset');
+    }
+
+    burgerMenu() {
+        this.burgerMenuBtn?.classList.toggle('opened');
     }
 
     writeLevels() {
@@ -39,7 +44,7 @@ export default class LevelControl {
                 this.isPassedLevel(level.level, levelTitle);
                 levelsWrapper.append(levelTitle);
         }
-        this.sidebar?.append(levelsWrapper);
+        this.sidebar?.prepend(levelsWrapper);
         this.setListener();   
         
             
@@ -65,6 +70,9 @@ export default class LevelControl {
         });
         if (this.resetBtn) {
             this.resetBtn.addEventListener('click', this.resetProgress.bind(this));
+        }
+        if (this.burgerMenuBtn) {
+            this.burgerMenuBtn.addEventListener('click', this.burgerMenu.bind(this));
         }
     }
 

@@ -20,13 +20,24 @@ html {
 }
 
 body {
-    position: relative;
     display: flex;
-    height: 100%;
-    color: #fff;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color:#d6a585;
     color: black;
+    overflow-x: hidden;
+}
+
+.body__wrapper {
+    /* overflow: hidden; */
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
 }
 
 
@@ -36,16 +47,26 @@ body.body__hint_visible .help__hint {
 
 
 .content {
-    position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
-    width: 80%;
     gap: 40px;
+    min-height: 100vh;
+    overflow-y: auto;
+    flex-grow: 1;
 }
 
+.content::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+
+.content:-webkit-scrollbar-thumb {
+    background-color: black;
+}
+
+
+
 .container {
-    width: 80%;
+    max-width: 80%;
     margin: 0 auto;
 }
 
@@ -188,4 +209,10 @@ footer {
     height: 1px;
     background-color: black;
 
+}
+
+@media (max-width: 800px) {
+    .main__title {
+        font-size: 26px;
+    }
 }
