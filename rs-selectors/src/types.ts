@@ -20,4 +20,12 @@ interface ICar {
 	tag?: string,
 }
 
-export {Levels};
+interface IVars {
+	currentLevel: number,
+	maxLevel: number,
+	passedLevels: number[];
+	isHintUsed: boolean,
+	passedWithHint: number[],
+}
+
+export {Levels, IVars};

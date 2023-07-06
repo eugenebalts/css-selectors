@@ -1,3 +1,5 @@
+import { IVars } from '../../../types';
+
 const lsGetPassed = localStorage.getItem('passed');
 const lsGetCurrent = localStorage.getItem('currentLevel');
 const lsGetHinted = localStorage.getItem('hinted');
@@ -9,13 +11,5 @@ const variables: IVars = {
 	isHintUsed: false,
 	passedWithHint: lsGetHinted ? [...JSON.parse(lsGetHinted)] : [],
 };
-
-interface IVars {
-	currentLevel: number,
-	maxLevel: number,
-	passedLevels: number[];
-	isHintUsed: boolean,
-	passedWithHint: number[],
-}
 
 export default variables;
