@@ -22,7 +22,7 @@ export default class LevelControl {
     }
 
     burgerMenu() {
-        this.burgerMenuBtn?.classList.toggle('opened');
+        this.burgerMenuBtn?.classList.toggle('burger-menu_opened');
     }
 
     writeLevels() {
