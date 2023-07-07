@@ -28,4 +28,4 @@ interface IVars {
 	passedWithHint: number[],
 }
 
-export {Levels, IVars};
+export {Levels, IVars, ILevel, ICar};

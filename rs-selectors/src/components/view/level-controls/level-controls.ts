@@ -62,10 +62,7 @@ export default class LevelControl {
                     variables.currentLevel = newLevel;
                     localStorage.setItem('currentLevel', JSON.stringify(newLevel));
                     this.updateLevels();
-
-                    this.gameField.clearField();
                     this.gameField.initialField();
-                    // this.editor.writeHTML();
                 }
             });
         });

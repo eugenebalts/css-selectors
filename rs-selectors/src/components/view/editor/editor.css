@@ -103,6 +103,10 @@
 	color: #AAA;
 }
 
+.html-string:hover {
+	color: whitesmoke;
+}
+
 .html-string_hovered {
 	color: whitesmoke;
 }
