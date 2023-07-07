@@ -128,9 +128,9 @@ const LEVELS: Levels = [
 		name: '#id, .classname',
 		class: 'level-6',
 		objects: [
-			objects['car-police1'],
-			objects['car-green1'],
 			objects['car-red2'],
+			objects['car-green1'],
+			objects['car-police1'],
 		],
 		objectsToFind: ['car-police1', 'car-green1'],	
 		rightAnswer: ['#police, .green', '.green, #police', '#police,.green', '.green,#police'],
@@ -163,7 +163,7 @@ const LEVELS: Levels = [
 		objectsToFind: ['car-truck2'],	
 		rightAnswer: ['truck:nth-child(2)'],
 		find: 'second truck',
-		code: [`${objects['car-truck1'].tag}`, `\u00A0\u00A0\u00A0\u00A0${objects['car-red1'].tag}`, `${objects['car-red1'].tag}`],
+		code: [`${objects['car-truck1'].tag}`, `\u00A0\u00A0\u00A0\u00A0${objects['car-red1'].tag}`, `${objects['car-truck2'].tag}`],
 	},
 	{
 		level: 9,
@@ -210,7 +210,7 @@ const LEVELS: Levels = [
 		'[owner = "Government"]', '[owner=\'Government\']', '[owner= \'Government\']',
 		'[owner= \'Government\']', '[owner =\'Government\']', '[owner = \'Government\']'],
 		find: 'attribute with the value',
-		code: [`${objects['car-red1'].tag}`, `${objects['car-truck2'].tag}`, `${objects['car-police1'].tag}`],
+		code: [`${objects['car-red1'].tag}`, `${objects['car-police1'].tag}`, `${objects['car-truck2'].tag}`],
 	},
 	{
 		level: 12,
@@ -238,7 +238,7 @@ const LEVELS: Levels = [
 		objectsToFind: ['congratulations'],	
 		rightAnswer: ['restart'],
 		find: '... Bro, you pass this game',
-		code: ['Sheesh'],
+		code: [''],
 	},
 ];
 
