@@ -12,7 +12,7 @@ class Editor {
 	LevelControl = new LevelControl();
 	helpBtn: HTMLButtonElement | null = document.querySelector('.editor__help-btn');
 
-	public editorListeners() {
+	public editorListeners():void {
 		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this)); // Check answer for mouse click
 		this.inputCss?.addEventListener('keypress', (event) => { // Check answer for keyboard
 			if (event.key === 'Enter') this.checkAnswer();
@@ -21,7 +21,7 @@ class Editor {
 		this.helpBtn?.addEventListener('click', this.help.bind(this));
 	}
 
-	private help() {
+	private help():void {
 		if (this.inputCss) {
 			this.inputCss.value = '';
 			const currentLevel: number = variables.currentLevel;
@@ -41,7 +41,7 @@ class Editor {
 		}
 	}
 
-	private checkAnswer() {
+	private checkAnswer():void {
 		this.inputCss?.focus();
 		const currentLevel: number = variables.currentLevel;
 		const rightAnswer: Array<string> = LEVELS[currentLevel - 1].rightAnswer;
@@ -79,7 +79,7 @@ class Editor {
 		}
 	}
 
-	private updateLocalStorage(level: number, method = 'standard') {
+	private updateLocalStorage(level: number, method = 'standard'):void {
 		const passedLevels: Array<number> = variables.passedLevels;
 		if (!passedLevels.includes(level)) {
 			variables.passedLevels.push(level);

@@ -8,7 +8,7 @@ export default class GameField {
 	private mainTitle: HTMLHeadElement | null = document.querySelector('.main__title');
 	private inputHint: HTMLDivElement | null = document.querySelector('.input__hint_html');
 
-	public initialField() {
+	public initialField():void {
 		const currentLevel: number = variables.currentLevel;
 
 		if (this.gameField) { // Reset level
@@ -54,7 +54,7 @@ export default class GameField {
 		this.writeHTML();
 	}
 
-	private writeHTML() {
+	private writeHTML():void {
 		const currentLevel: number = variables.currentLevel;
 		const levelProps: ILevel =  LEVELS[currentLevel - 1];
 		const HTMLCode: Array<string> = levelProps.code;
@@ -74,7 +74,7 @@ export default class GameField {
 		this.setHoverListeners();
 	}
 
-	private setHoverListeners() {
+	private setHoverListeners():void {
 		if (this.gameField) {
 			window.addEventListener('mouseover', (event) => {
 				const HTMLStrings: Array<HTMLElement> | [] = Array.from(document.querySelectorAll('.html-string'));
@@ -117,7 +117,7 @@ export default class GameField {
 		}
 	}
 
-	private clearField() {
+	private clearField():void {
 		if (this.gameField) {
 			while (this.gameField.firstChild) {
 				this.gameField.removeChild(this.gameField.firstChild);

@@ -9,11 +9,11 @@ export default class LevelControl {
     private resetBtn: HTMLButtonElement | null = document.querySelector('.sidebar__reset-btn');
     private burgerMenuBtn: HTMLDivElement | null = document.querySelector('.burger-menu');
 
-    private burgerMenu() {
+    private burgerMenu():void {
         this.burgerMenuBtn?.classList.toggle('burger-menu_opened');
     }
 
-    public writeLevels() {
+    public writeLevels():void {
         const currentLevel: number  = variables.currentLevel;
         const isHintUsed: boolean = variables.isHintUsed;
         const levelsWrapper: HTMLDivElement = document.createElement('div');
@@ -38,7 +38,7 @@ export default class LevelControl {
         this.setListener();
     }
 
-    public updateLevels(type = 'update') {
+    public updateLevels(type = 'update'):void {
         const currentLevel = variables.currentLevel;
         const passedLevels = variables.passedLevels;
         const isHintUsed = variables.isHintUsed;
@@ -56,7 +56,7 @@ export default class LevelControl {
         });
     }
 
-    public isPassedLevel(level: number, el: HTMLElement, hint: boolean) {
+    public isPassedLevel(level: number, el: HTMLElement, hint: boolean):void {
         const passedLevels: number[] = variables.passedLevels;
         const passedWithHint: number[] = variables.passedWithHint;
 
@@ -65,7 +65,7 @@ export default class LevelControl {
         if (hint === true) el.classList.add('levels__title_hint-used'); //IF level was passed with a hint (checks when you pass a level)
     }
 
-    private resetProgress() {
+    private resetProgress():void {
         localStorage.setItem('currentLevel', JSON.stringify(1));
         variables.currentLevel = 1;
         variables.passedLevels = [];
@@ -74,7 +74,7 @@ export default class LevelControl {
         this.gameField.initialField();
     }
 
-    private setListener() {
+    private setListener():void {
         this.switchLevel();
 
         if (this.resetBtn) {
@@ -85,9 +85,9 @@ export default class LevelControl {
         }
     }
 
-    private switchLevel() {
+    private switchLevel():void {
         const navItems: NodeListOf<HTMLElement> = document.querySelectorAll('.levels__title');
-        
+
         navItems.forEach((item) => {
             item.addEventListener('click', () => {
                 const levelAttribute: string | null = item.getAttribute('level');

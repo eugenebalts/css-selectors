@@ -7,7 +7,7 @@ export default class App {
 	private gameField = new GameField();
 	private editor = new Editor();
 
-	public start() {
+	public start():void {
 		this.levelControl.writeLevels();
 		this.gameField.initialField();
 		this.editor.editorListeners();
