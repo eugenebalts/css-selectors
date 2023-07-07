@@ -10,34 +10,30 @@ class Editor {
 	enterBtn: HTMLButtonElement | null = document.querySelector('.editor__enter-btn');
 	GameField = new GameField();
 	LevelControl = new LevelControl();
-	level = variables.currentLevel;
 	helpBtn: HTMLButtonElement | null = document.querySelector('.editor__help-btn');
-	inputHint: Element | null = document.querySelectorAll('.input__hint')[1];
 
-	setListener() {
-		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this));
-		this.inputCss?.addEventListener('keypress', (event) => {
-			if (event.key === 'Enter') {
-				this.checkAnswer();
-			}
+	public editorListeners() {
+		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this)); // Check answer for mouse click
+		this.inputCss?.addEventListener('keypress', (event) => { // Check answer for keyboard
+			if (event.key === 'Enter') this.checkAnswer();
 			this.inputCss?.focus();
 		});
 		this.helpBtn?.addEventListener('click', this.help.bind(this));
 	}
 
-	help() {
+	private help() {
 		if (this.inputCss) {
 			this.inputCss.value = '';
-			const currentLevel = variables.currentLevel;
+			const currentLevel: number = variables.currentLevel;
 			const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
 			if (this.helpBtn) this.helpBtn.disabled = true;
 			rightAnswer[0]?.split('').forEach((item, i) => {
-				setTimeout(() => {
+				setTimeout(() => { // Smooth print effect
 					if (this.inputCss) this.inputCss.value += item;
 					this.inputCss?.focus();
-				},i * 100);
+				}, i * 100);
 			});
-			setTimeout(() => {
+			setTimeout(() => { // Make button disabled while hint is printing
 				if (this.helpBtn) this.helpBtn.disabled = false;
 			}, 3000);
 
@@ -45,10 +41,10 @@ class Editor {
 		}
 	}
 
-	checkAnswer() {
+	private checkAnswer() {
 		this.inputCss?.focus();
-		const currentLevel = variables.currentLevel;
-		const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
+		const currentLevel: number = variables.currentLevel;
+		const rightAnswer: Array<string> = LEVELS[currentLevel - 1].rightAnswer;
 		const objectsToFind = document.querySelectorAll('.to-find');
 		if (this.inputCss) {
 			if (rightAnswer.includes(this.inputCss.value.trim()) || (currentLevel === variables.maxLevel)) {
@@ -68,7 +64,7 @@ class Editor {
 						item.classList.add('vehicle_fined-down');
 					}
 				});
-				setTimeout(() => {
+				setTimeout(() => { // Switch level after animation ends
 					this.LevelControl.updateLevels();
 					this.GameField.initialField();
 					variables.isHintUsed = false;
@@ -83,9 +79,8 @@ class Editor {
 		}
 	}
 
-	updateLocalStorage(level: number, method = 'standard') {
-		const passedLevels = variables.passedLevels;
-		// const passedWithHint = variables.passedWithHint;
+	private updateLocalStorage(level: number, method = 'standard') {
+		const passedLevels: Array<number> = variables.passedLevels;
 		if (!passedLevels.includes(level)) {
 			variables.passedLevels.push(level);
 			localStorage.setItem('passed', JSON.stringify(variables.passedLevels));
@@ -95,9 +90,6 @@ class Editor {
 			variables.passedWithHint.push(level);
 			localStorage.setItem('hinted', JSON.stringify(variables.passedWithHint));
 		}
-
-
-		console.log(localStorage);
 
 		localStorage.setItem('currentLevel', JSON.stringify(level + 1));
 
