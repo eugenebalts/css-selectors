@@ -1,8 +1,8 @@
 import { IVars } from '../../../types';
 
-const lsGetPassed = localStorage.getItem('passed');
-const lsGetCurrent = localStorage.getItem('currentLevel');
-const lsGetHinted = localStorage.getItem('hinted');
+const lsGetPassed: string | null = localStorage.getItem('passed');
+const lsGetCurrent: string | null = localStorage.getItem('currentLevel');
+const lsGetHinted: string | null = localStorage.getItem('hinted');
 
 const variables: IVars = {
 	currentLevel: lsGetCurrent ? JSON.parse(lsGetCurrent) : 1,
