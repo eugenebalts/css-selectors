@@ -4,7 +4,7 @@ import './game-field.css';
 import variables from '../../controller/manageLevels/variables';
 
 export default class GameField {
-	private gameField: HTMLDivElement | null = document.querySelector('.field');
+	public gameField: HTMLDivElement | null = document.querySelector('.field');
 	private mainTitle: HTMLHeadElement | null = document.querySelector('.main__title');
 	private inputHint: HTMLDivElement | null = document.querySelector('.input__hint_html');
 
@@ -54,7 +54,7 @@ export default class GameField {
 		this.writeHTML();
 	}
 
-	private writeHTML():void {
+	public writeHTML():void {
 		const currentLevel: number = variables.currentLevel;
 		const levelProps: ILevel =  LEVELS[currentLevel - 1];
 		const HTMLCode: Array<string> = levelProps.code;
@@ -117,7 +117,7 @@ export default class GameField {
 		}
 	}
 
-	private clearField():void {
+	public clearField():void {
 		if (this.gameField) {
 			while (this.gameField.firstChild) {
 				this.gameField.removeChild(this.gameField.firstChild);

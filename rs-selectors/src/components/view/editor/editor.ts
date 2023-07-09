@@ -21,7 +21,7 @@ class Editor {
 		this.helpBtn?.addEventListener('click', this.help.bind(this));
 	}
 
-	private help():void {
+	public help():void {
 		if (this.inputCss) {
 			this.inputCss.value = '';
 			const currentLevel: number = variables.currentLevel;
@@ -79,7 +79,7 @@ class Editor {
 		}
 	}
 
-	private updateLocalStorage(level: number, method = 'standard'):void {
+	public updateLocalStorage(level: number, method = 'standard'):void {
 		const passedLevels: Array<number> = variables.passedLevels;
 		if (!passedLevels.includes(level)) {
 			variables.passedLevels.push(level);
