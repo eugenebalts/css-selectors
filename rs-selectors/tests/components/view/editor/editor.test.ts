@@ -7,13 +7,13 @@ describe('Editor', () => {
         localStorage.clear();
     });
 
-    test("Should correctly update LocalStorage", () => {
-        const level = 6;
-        editor.updateLocalStorage(level);
+    test("Should correctly update LocalStorage and switch current level", () => {
+        const currentLevel = 6;
+        editor.updateLocalStorage(currentLevel);
         const passedLevels = localStorage.passed;
-        const currentLevel = localStorage.currentLevel;
+        const newCurrentLevel = localStorage.currentLevel;
         expect(passedLevels).toBe("[6]");
-        expect(currentLevel).toBe('7');
+        expect(newCurrentLevel).toBe('7');
     });
     
 })
