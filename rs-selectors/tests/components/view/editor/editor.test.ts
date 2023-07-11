@@ -13,12 +13,26 @@ describe('Editor', () => {
         <button class="editor__help-btn"></button>
     `;
 
-    
-
     beforeEach(() => {
         editor = new Editor();
         localStorage.clear();
     });
+
+    test('Defines help method', () => {
+        const result = editor['help']();
+        expect(result).toBeUndefined();
+    })
+
+    test('Defines checkAnswer method', () => {
+        const result = editor['checkAnswer']();
+        expect(result).toBeUndefined();
+    })
+
+    test('Defines editorListeners method', () => {
+        const result = editor['editorListeners']();
+        expect(result).toBeUndefined();
+    })
+
 
     test("Should correctly update LocalStorage and switch current level", () => {
         const currentLevel = 6;
@@ -28,6 +42,11 @@ describe('Editor', () => {
         expect(passedLevels).toBe("[6]");
         expect(newCurrentLevel).toBe('7');
     });
+
+    test('Defines update LocalStorage method', () => {
+        const result = editor['updateLocalStorage'](7);
+        expect(result).toBeUndefined();
+    })
 
     test("Should clean inputCss and make button disabled", () => {
         const inputCss = document.querySelector('.input__input-css') as HTMLInputElement;
