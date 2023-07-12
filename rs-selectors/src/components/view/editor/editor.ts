@@ -13,8 +13,8 @@ class Editor {
 	helpBtn: HTMLButtonElement | null = document.querySelector('.editor__help-btn');
 
 	public editorListeners():void {
-		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this)); // Check answer for mouse click
-		this.inputCss?.addEventListener('keypress', (event) => { // Check answer for keyboard
+		this.enterBtn?.addEventListener('click', this.checkAnswer.bind(this));
+		this.inputCss?.addEventListener('keypress', (event) => {
 			if (event.key === 'Enter') this.checkAnswer();
 			this.inputCss?.focus();
 		});
@@ -28,12 +28,12 @@ class Editor {
 			const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
 			if (this.helpBtn) this.helpBtn.disabled = true;
 			rightAnswer[0]?.split('').forEach((item, i) => {
-				setTimeout(() => { // Smooth print effect
+				setTimeout(() => {
 					if (this.inputCss) this.inputCss.value += item;
 					this.inputCss?.focus();
 				}, i * 100);
 			});
-			setTimeout(() => { // Make button disabled while hint is printing
+			setTimeout(() => {
 				if (this.helpBtn) this.helpBtn.disabled = false;
 			}, 3000);
 
@@ -64,7 +64,7 @@ class Editor {
 						item.classList.add('vehicle_fined-down');
 					}
 				});
-				setTimeout(() => { // Switch level after animation ends
+				setTimeout(() => {
 					this.LevelControl.updateLevels();
 					this.GameField.initialField();
 					variables.isHintUsed = false;

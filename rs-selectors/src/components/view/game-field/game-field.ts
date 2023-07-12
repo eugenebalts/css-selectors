@@ -11,7 +11,7 @@ export default class GameField {
 	public initialField():void {
 		const currentLevel: number = variables.currentLevel;
 
-		if (this.gameField) { // Reset level
+		if (this.gameField) {
 			if (this.gameField.getAttribute('class')) {
 				this.gameField.removeAttribute('class');
 				this.gameField.classList.add('field');
@@ -19,7 +19,7 @@ export default class GameField {
 
 			this.clearField();
 
-			const levelProps: ILevel =  LEVELS[currentLevel - 1]; // Properties for current level (by index);
+			const levelProps: ILevel =  LEVELS[currentLevel - 1];
 			this.gameField.classList.add(levelProps.class);
 			const road = document.createElement('img');
 			road.classList.add('field__background');
@@ -37,7 +37,7 @@ export default class GameField {
 				const carContainer: HTMLDivElement = document.createElement('div');
 				carContainer.classList.add('vehicle__container',`${objectsArray[car].row}`, `${objectsArray[car].image}`);
 
-				if (objectsArray[car].tag) carContainer.setAttribute('data-tag', `${objectsArray[car].tag}`); // hover:before { content = data-tag }
+				if (objectsArray[car].tag) carContainer.setAttribute('data-tag', `${objectsArray[car].tag}`);
 
 				const carImage: HTMLImageElement = document.createElement('img');
 				carImage.src = `./images/${objectsArray[car].image}.png`;

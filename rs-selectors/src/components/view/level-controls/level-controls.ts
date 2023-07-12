@@ -39,16 +39,16 @@ export default class LevelControl {
     }
 
     public updateLevels(type = 'update'):void {
-        const currentLevel = variables.currentLevel;
-        const passedLevels = variables.passedLevels;
-        const isHintUsed = variables.isHintUsed;
-        const levelsTitle = document.querySelectorAll('.levels__title');
+        const currentLevel: number = variables.currentLevel;
+        const passedLevels: number[] = variables.passedLevels;
+        const isHintUsed: boolean = variables.isHintUsed;
+        const levelsTitle: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.levels__title');
         levelsTitle.forEach((item, index) => {
             if (item.classList.contains('levels__title_active')) item.classList.remove('levels__title_active');
             if (item.classList.contains(`levels__title_${currentLevel}`)) item.classList.add('levels__title_active');
             if (item.classList.contains(`levels__title_${currentLevel}`)) this.isPassedLevel(currentLevel - 1, levelsTitle[index - 1] as HTMLElement, isHintUsed);
             
-            if (type === 'reset') { // FOR RESET BUTTON
+            if (type === 'reset') {
                 if (item.classList.contains('levels__title_passed')) {
                     if (!((index + 1) in passedLevels)) item.classList.remove('levels__title_passed');
                 }
@@ -61,8 +61,8 @@ export default class LevelControl {
         const passedWithHint: number[] = variables.passedWithHint;
 
         if (passedLevels.includes(level)) el.classList.add('levels__title_passed');
-        if (passedWithHint.includes(level)) el.classList.add('levels__title_hint-used'); //IF level was passed with a hint (checks in localStorage when game is loading)
-        if (hint === true) el.classList.add('levels__title_hint-used'); //IF level was passed with a hint (checks when you pass a level)
+        if (passedWithHint.includes(level)) el.classList.add('levels__title_hint-used');
+        if (hint === true) el.classList.add('levels__title_hint-used');
     }
 
     private resetProgress():void {
