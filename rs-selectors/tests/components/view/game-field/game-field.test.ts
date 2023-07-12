@@ -1,4 +1,4 @@
-import GameField from "../../../../src/components/view/game-field/game-field";
+import GameField from '../../../../src/components/view/game-field/game-field';
 
 describe('GameField', () => {
     const gameField = new GameField();

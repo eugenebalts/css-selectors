@@ -1,12 +1,8 @@
-import Editor from "../../../../src/components/view/editor/editor";
-import variables from "../../../../src/components/controller/manageLevels/variables";
+import Editor from '../../../../src/components/view/editor/editor';
 
 describe('Editor', () => {
     let editor = new Editor();
-    let mockVariables,
-        mockInputCss,
-        mockHelpBtn
-    ;
+
     document.body.innerHTML = `
         <div class="field"></div>
         <input class="input__input-css" type="text">
@@ -34,12 +30,12 @@ describe('Editor', () => {
     })
 
 
-    test("Should correctly update LocalStorage and switch current level", () => {
+    test('Should correctly update LocalStorage and switch current level', () => {
         const currentLevel = 6;
         editor.updateLocalStorage(currentLevel);
         const passedLevels = localStorage.passed;
         const newCurrentLevel = localStorage.currentLevel;
-        expect(passedLevels).toBe("[6]");
+        expect(passedLevels).toBe('[6]');
         expect(newCurrentLevel).toBe('7');
     });
 
@@ -48,7 +44,7 @@ describe('Editor', () => {
         expect(result).toBeUndefined();
     })
 
-    test("Should clean inputCss and make button disabled", () => {
+    test('Should clean inputCss and make button disabled', () => {
         const inputCss = document.querySelector('.input__input-css') as HTMLInputElement;
         const helpBtn = document.querySelector('.editor__help-btn') as HTMLButtonElement;
 
@@ -58,6 +54,4 @@ describe('Editor', () => {
         expect(inputCss.value).toBe('');
         expect(helpBtn.disabled).toBe(true);
     });
-
-    
 })
