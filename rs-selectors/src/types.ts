@@ -23,7 +23,7 @@ interface ICar {
 interface IVars {
 	currentLevel: number,
 	maxLevel: number,
-	passedLevels: number[];
+	passedLevels: number[],
 	isHintUsed: boolean,
 	passedWithHint: number[],
 }
