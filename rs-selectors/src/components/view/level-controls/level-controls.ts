@@ -89,6 +89,7 @@ export default class LevelControl {
 
         navItems.forEach((item) => {
             item.addEventListener('click', () => {
+                state.isHintUsed = false;
                 const levelAttribute: string | null = item.getAttribute('level');
                 const newLevel = Number(levelAttribute);
 
