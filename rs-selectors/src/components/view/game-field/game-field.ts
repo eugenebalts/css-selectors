@@ -1,7 +1,7 @@
 import LEVELS from '../../controller/manageLevels//levels';
 import { ILevel, ICar } from '../../../types';
 import './game-field.css';
-import variables from '../../controller/manageLevels/variables';
+import state from '../../controller/manageLevels/variables';
 
 export default class GameField {
 	public gameField: HTMLDivElement | null = document.querySelector('.field');
@@ -9,7 +9,7 @@ export default class GameField {
 	private inputHint: HTMLDivElement | null = document.querySelector('.input__hint_html');
 
 	public initialField():void {
-		const currentLevel: number = variables.currentLevel;
+		const currentLevel: number = state.get('currentLevel');
 
 		if (this.gameField) {
 			if (this.gameField.getAttribute('class')) {
@@ -55,7 +55,7 @@ export default class GameField {
 	}
 
 	public writeHTML():void {
-		const currentLevel: number = variables.currentLevel;
+		const currentLevel: number = state.get('currentLevel');
 		const levelProps: ILevel =  LEVELS[currentLevel - 1];
 		const HTMLCode: Array<string> = levelProps.code;
 

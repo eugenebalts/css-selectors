@@ -2,7 +2,7 @@ import './editor.css';
 import LEVELS from '../../controller/manageLevels/levels';
 import GameField from '../game-field/game-field';
 import LevelControl from '../level-controls/level-controls';
-import variables from '../../controller/manageLevels/variables';
+import state from '../../controller/manageLevels/variables';
 
 class Editor {
 	editorWrapper: HTMLDivElement | null = document.querySelector('.editor__wrapper');
@@ -24,7 +24,7 @@ class Editor {
 	public help():void {
 		if (this.inputCss) {
 			this.inputCss.value = '';
-			const currentLevel: number = variables.currentLevel;
+			const currentLevel: number = state.get('currentLevel');
 			const rightAnswer = LEVELS[currentLevel - 1].rightAnswer;
 			if (this.helpBtn) this.helpBtn.disabled = true;
 			rightAnswer[0]?.split('').forEach((item, i) => {
@@ -37,22 +37,23 @@ class Editor {
 				if (this.helpBtn) this.helpBtn.disabled = false;
 			}, 3000);
 
-			variables.isHintUsed = true;
+			state.isHintUsed = true;
 		}
 	}
 
 	private checkAnswer():void {
 		this.inputCss?.focus();
-		const currentLevel: number = variables.currentLevel;
+		const currentLevel: number = state.get('currentLevel');
+		const maxLevel: number = state.maxLevel;
 		const rightAnswer: Array<string> = LEVELS[currentLevel - 1].rightAnswer;
 		const objectsToFind = document.querySelectorAll('.to-find');
 		if (this.inputCss) {
-			if (rightAnswer.includes(this.inputCss.value.trim()) || (currentLevel === variables.maxLevel)) {
-				if (variables.maxLevel >= currentLevel + 1) {
-					variables.currentLevel = currentLevel + 1;
+			if (rightAnswer.includes(this.inputCss.value.trim()) || (currentLevel === maxLevel)) {
+				if (maxLevel >= currentLevel + 1) {
+					state.set('currentLevel', currentLevel + 1);
 					this.updateLocalStorage(currentLevel);
 				} else {
-					variables.currentLevel = 1;
+					state.reset('currentLevel');
 					this.updateLocalStorage(currentLevel, 'restart');
 				}
 
@@ -67,7 +68,7 @@ class Editor {
 				setTimeout(() => {
 					this.LevelControl.updateLevels();
 					this.GameField.initialField();
-					variables.isHintUsed = false;
+					state.isHintUsed = false;
 				}, 1500); 
 				this.inputCss.value = '';
 			} else {
@@ -80,15 +81,16 @@ class Editor {
 	}
 
 	public updateLocalStorage(level: number, method = 'standard'):void {
-		const passedLevels: Array<number> = variables.passedLevels;
+		const passedLevels: Array<number> = state.get('passedLevels');
 		if (!passedLevels.includes(level)) {
-			variables.passedLevels.push(level);
-			localStorage.setItem('passed', JSON.stringify(variables.passedLevels));
+			passedLevels.push(level);
+			state.set('passedLevels', passedLevels);
 		}
 
-		if (variables.isHintUsed === true) {
-			variables.passedWithHint.push(level);
-			localStorage.setItem('hinted', JSON.stringify(variables.passedWithHint));
+		if (state.isHintUsed === true) {
+			const passedWithHint: Array<number> = state.get('passedWithHint');
+			passedWithHint.push(level);
+			state.set('passedWithHint', passedWithHint);
 		}
 
 		localStorage.setItem('currentLevel', JSON.stringify(level + 1));

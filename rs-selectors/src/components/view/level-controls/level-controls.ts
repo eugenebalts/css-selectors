@@ -1,6 +1,6 @@
 import './level-controls.css';
 import LEVELS from '../../controller/manageLevels//levels';
-import variables from '../../controller/manageLevels/variables';
+import state from '../../controller/manageLevels/variables';
 import GameField from '../game-field/game-field';
 
 export default class LevelControl {
@@ -14,8 +14,8 @@ export default class LevelControl {
     }
 
     public writeLevels():void {
-        const currentLevel: number  = variables.currentLevel;
-        const isHintUsed: boolean = variables.isHintUsed;
+        const currentLevel: number  = state.get('currentLevel');
+        const isHintUsed: boolean = state.isHintUsed;
         const levelsWrapper: HTMLDivElement = document.createElement('div');
         levelsWrapper.classList.add('levels-control');
         for (const level of LEVELS) {
@@ -39,9 +39,9 @@ export default class LevelControl {
     }
 
     public updateLevels(type = 'update'):void {
-        const currentLevel: number = variables.currentLevel;
-        const passedLevels: number[] = variables.passedLevels;
-        const isHintUsed: boolean = variables.isHintUsed;
+        const currentLevel: number  = state.get('currentLevel');
+        const passedLevels: number[] = state.get('passedLevels');
+        const isHintUsed: boolean = state.isHintUsed;
         const levelsTitle: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.levels__title');
         levelsTitle.forEach((item, index) => {
             if (item.classList.contains('levels__title_active')) item.classList.remove('levels__title_active');
@@ -57,8 +57,8 @@ export default class LevelControl {
     }
 
     public isPassedLevel(level: number, el: HTMLElement, hint: boolean):void {
-        const passedLevels: number[] = variables.passedLevels;
-        const passedWithHint: number[] = variables.passedWithHint;
+        const passedLevels: number[] = state.get('passedLevels');
+        const passedWithHint: number[] = state.get('passedWithHint');
 
         if (passedLevels.includes(level)) el.classList.add('levels__title_passed');
         if (passedWithHint.includes(level)) el.classList.add('levels__title_hint-used');
@@ -67,9 +67,8 @@ export default class LevelControl {
 
     private resetProgress():void {
         localStorage.setItem('currentLevel', JSON.stringify(1));
-        variables.currentLevel = 1;
-        variables.passedLevels = [];
-        localStorage.setItem('passed', JSON.stringify(variables.passedLevels));
+        state.reset('currentLevel');
+        state.reset('passedLevels');
         this.updateLevels('reset');
         this.gameField.initialField();
     }
@@ -94,8 +93,7 @@ export default class LevelControl {
                 const newLevel = Number(levelAttribute);
 
                 if (newLevel !== LEVELS.length) {
-                    variables.currentLevel = newLevel;
-                    localStorage.setItem('currentLevel', JSON.stringify(newLevel));
+                    state.set('currentLevel', newLevel);
                     this.updateLevels();
                     this.gameField.initialField();
                 }

@@ -1,16 +1,41 @@
 import { IVars } from '../../../types';
 
-function getFromLocalStorage <T extends string> (item: T) {
-	const gotValue = localStorage.getItem(item);
-	if (gotValue) return JSON.parse(gotValue);
-}
-
-const variables: IVars = {
-	currentLevel: getFromLocalStorage('currentLevel') || 1,
-	maxLevel: 13,
-	passedLevels: getFromLocalStorage('passed') || [],
+const DEFAULT: Partial<IVars> = {
+	currentLevel: 1,
+	passedLevels: [],
+	passedWithHint: [],
 	isHintUsed: false,
-	passedWithHint: getFromLocalStorage('hinted') || [],
 };
 
-export default variables;
+class State {
+    maxLevel: number;
+    isHintUsed: boolean;
+    currentLevel: number;
+    passedLevels: number[];
+    passedWithHint: number[];
+
+    constructor() {
+		this.maxLevel = 13;
+		this.isHintUsed = false;
+		this.currentLevel = this.get('currentLevel');
+		this.passedLevels = this.get('passedLevels');
+		this.passedWithHint = this.get('passedWithHint');
+    }
+
+    public get<T>(key: keyof IVars): T {
+		const value: string | null = localStorage.getItem(key);
+		return value ? JSON.parse(value) : DEFAULT[key];
+    }
+
+    public set<T>(key: keyof IVars, data: T) {
+		localStorage.setItem(key, JSON.stringify(data));
+    }
+
+	public reset(key: keyof IVars) {
+		localStorage.setItem(key, JSON.stringify(DEFAULT[key]));
+	}
+}
+
+const state = new State();
+
+export default state;
