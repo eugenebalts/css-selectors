@@ -1,4 +1,5 @@
 import Editor from '../../../../src/components/view/editor/editor';
+import state from '../../../../src/components/controller/manageLevels/variables';
 
 describe('Editor', () => {
     let editor = new Editor();
@@ -33,10 +34,10 @@ describe('Editor', () => {
     test('Should correctly update LocalStorage and switch current level', () => {
         const currentLevel = 6;
         editor.updateLocalStorage(currentLevel);
-        const passedLevels = localStorage.passed;
-        const newCurrentLevel = localStorage.currentLevel;
-        expect(passedLevels).toBe('[6]');
-        expect(newCurrentLevel).toBe('7');
+        const passedLevels = state.get('passedLevels');
+        const newCurrentLevel = state.get('currentLevel');
+        expect(passedLevels).toEqual([6]);
+        expect(newCurrentLevel).toBe(7);
     });
 
     test('Defines update LocalStorage method', () => {

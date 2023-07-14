@@ -1,5 +1,5 @@
 import LevelControl from "../../../../src/components/view/level-controls/level-controls";
-import variables from "../../../../src/components/controller/manageLevels/variables";
+import state from "../../../../src/components/controller/manageLevels/variables";
 
 describe('LevelControl', () => {
     const levelControl = new LevelControl()
@@ -8,8 +8,8 @@ describe('LevelControl', () => {
     })
 
     test('Should set class "levels__title_passed" to navigation element if this level was passed', () => {
-        variables.passedLevels = [2, 4];
-        variables.passedWithHint = [2];
+        state.set('passedLevels', [2, 4]);
+        state.set('passedWithHint', [2]);
         const fakeElement1 = document.createElement('div');
         const fakeElement2 = document.createElement('div');
         const fakeElement3 = document.createElement('div');
