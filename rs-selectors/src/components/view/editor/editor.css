@@ -1,19 +1,19 @@
 /*----- EDITOR ----*/
 
 .main__editor {
-	display: flex;
-	justify-content: center;
-	font-size: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
 }
 
 .editor__wrapper {
-	display: flex;
-	width: 100%;
-	background-color: rgba(0, 0, 0, .7);
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .editor__wrapper_incorrect {
-	animation: incorrect .1s infinite;
+    animation: incorrect 0.1s infinite;
 }
 
 @keyframes incorrect {
@@ -34,96 +34,94 @@
 }
 
 .editor__field {
-	display: flex;
-	flex-direction: column;
-	width: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
 }
 
 .editor__header {
-	padding: 5px 10px;
-	display: flex;
-	justify-content: space-between;
-	color: #fff;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
 }
 
 .editor__subtitle {
-	color: #AAA; 
+    color: #aaa;
 }
 
 .editor__input-wrapper {
-	display: flex;
-	background-color: #fff;
-	
+    display: flex;
+    background-color: #fff;
 }
 
 .editor__input-wrapper_css {
-	position: relative;
+    position: relative;
 }
 
 .input__line-numbers {
-	padding: 5px 5px 5px 10px;
-	margin-right: 5px;
-	background-color: rgba(0, 0, 0, .3);
-	text-align: right;
+    padding: 5px 5px 5px 10px;
+    margin-right: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: right;
 }
 
 .input__field {
-	padding: 5px;
+    padding: 5px;
 }
 
 .input__input-css {
-	display: inline-block;
-	height: fit-content;
-	border: none;
-	width: 100%;
-	animation: input 1s infinite;
+    display: inline-block;
+    height: fit-content;
+    border: none;
+    width: 100%;
+    animation: input 1s infinite;
 }
 
 .input__input-css:focus {
-	outline: none;
-	width: 80%;
+    outline: none;
+    width: 80%;
 }
 
 .editor__enter-btn {
-	position: absolute;
-	right: 5px;
-	top: 5px;
-	width: 30px;
-	font-size: 12px;
-	text-align: center;
-	cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 30px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .editor__help-btn {
-	width: 100%;
+    width: 100%;
 }
 
 .editor__input-wrapper_html {
-	background-color: rgba(0, 0, 0, .3) ;
-	color: #AAA;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #aaa;
 }
 
 .html-string:hover {
-	color: whitesmoke;
+    color: whitesmoke;
 }
 
 .html-string_hovered {
-	color: whitesmoke;
+    color: whitesmoke;
 }
 
 .input__hint {
-	color: #AAA;
+    color: #aaa;
 }
 
 @keyframes input {
-	0% {
-		background-color: transparent;
-	}
-	50% {
-		background-color: rgba(62,203,255,.3);
-	}
-	100% {
-		background-color: transparent;
-	}
+    0% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: rgba(62, 203, 255, 0.3);
+    }
+    100% {
+        background-color: transparent;
+    }
 }
-

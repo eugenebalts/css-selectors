@@ -1,141 +1,140 @@
 /* SIDEBAR */
 
 .burger-menu {
-	display: none;
-	z-index: 3;
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	flex-direction: column;
-	gap: 8px;
-	transition: all .2s linear;
-	cursor: pointer;
-	z-index: 50;
+    display: none;
+    z-index: 3;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    z-index: 50;
 }
 
 .burger-menu div {
-	width: 30px;
-	height: 2px;
-	background-color: black;
+    width: 30px;
+    height: 2px;
+    background-color: black;
 }
 
 .sidebar {
-	padding: 30px 0;
+    padding: 30px 0;
     background-color: rgba(0, 0, 0, 0.6);
-	color: whitesmoke;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	z-index: 20;
+    color: whitesmoke;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 20;
 }
 
 .sidebar__reset-btn {
-	width: 100%;
-	padding: 10px;
-	margin-top: 10px;
-	align-self: center;
-	background: #AAA;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    align-self: center;
+    background: #aaa;
 }
 
 .levels-control {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	padding: 0 35px;
-	font-size: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 35px;
+    font-size: 20px;
 }
 
 .levels__title {
-	position: relative;
-	opacity: .5;
-	cursor: pointer;
-	transition: all .05s linear;
+    position: relative;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.05s linear;
 }
 
 .levels__title:hover {
-	opacity: 1;
-	transform: scale(1.05);
+    opacity: 1;
+    transform: scale(1.05);
 }
 
 .levels__title:before {
-	position: absolute;
-	display: block;
-	content: '✔';
-	color: rgba(255, 255, 255, .2);
-	font-weight: 700;
-	top: 0;
-	left: -20px;
+    position: absolute;
+    display: block;
+    content: '✔';
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+    top: 0;
+    left: -20px;
 }
 
 .levels__title_13:before {
-	display: none;
+    display: none;
 }
 
 .levels__title_13::after {
-	display: none;
+    display: none;
 }
 
-	
 .levels__title_passed:before {
-	color: rgba(159, 255, 115, .8);
+    color: rgba(159, 255, 115, 0.8);
 }
 
 .levels__title_passed.levels__title_hint-used:before {
-	color: rgb(255, 51, 0);
+    color: rgb(255, 51, 0);
 }
 
 .levels__title span {
-	color: rgba(159, 255, 115, .8);
+    color: rgba(159, 255, 115, 0.8);
 }
 
 .levels__title:hover span {
-	color: rgba(159, 255, 115, .8);
+    color: rgba(159, 255, 115, 0.8);
 }
 
 .levels__title_active {
-	width: fit-content;
-	display: inline-block;
-	position: relative;
-	opacity: 1;
-	transform: scale(1.1);
+    width: fit-content;
+    display: inline-block;
+    position: relative;
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .levels__title_active::after {
-	position: absolute;
-	display: block;
-	content: '<';
-	color: red;
-	font-weight: 700;
-	top: 0;
-	right: -20px;
+    position: absolute;
+    display: block;
+    content: '<';
+    color: red;
+    font-weight: 700;
+    top: 0;
+    right: -20px;
 }
 
 @media (max-width: 800px) {
-	.sidebar {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		right: -100%;
-		opacity: 0;
-		transition: all .5s linear;
-		background-color: rgba(0, 0, 0, 0.9);
-		width: 100%;
-	}
+    .sidebar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -100%;
+        opacity: 0;
+        transition: all 0.5s linear;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+    }
 
-	.burger-menu {
-		display: flex;
-		transition: all .5s linear;
-	}
+    .burger-menu {
+        display: flex;
+        transition: all 0.5s linear;
+    }
 
-	.burger-menu_opened {
-		transform: rotate(270deg);
-	}
+    .burger-menu_opened {
+        transform: rotate(270deg);
+    }
 
-	.burger-menu_opened div {
-		background-color: rgba(255, 255, 255, .6);
-	}
+    .burger-menu_opened div {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
 
-	.burger-menu_opened ~ .sidebar {
-		right: 0;
-		opacity: 1;
-	}
+    .burger-menu_opened ~ .sidebar {
+        right: 0;
+        opacity: 1;
+    }
 }

@@ -3,7 +3,7 @@ module.exports = {
     testEnvironment: 'node',
     setupFilesAfterEnv: ['./setupLocalstorage.ts'],
     testEnvironment: 'jest-environment-jsdom',
-    "moduleNameMapper": {
-        "\\.(css)$": "identity-obj-proxy"
-    }
+    moduleNameMapper: {
+        '\\.(css)$': 'identity-obj-proxy',
+    },
 };

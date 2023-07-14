@@ -16,12 +16,12 @@ const baseConfig = {
             },
             {
                 test: /\.ts$/i,
-                use: 'ts-loader'
+                use: 'ts-loader',
             },
             {
                 test: /\.(jpe?g|gif|png)$/i,
                 use: [
-                        {
+                    {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
@@ -29,8 +29,7 @@ const baseConfig = {
                         },
                     },
                 ],
-            }
-
+            },
         ],
     },
     resolve: {
@@ -51,16 +50,18 @@ const baseConfig = {
             patterns: [
                 {
                     from: path.resolve(__dirname, 'src/images'),
-                    to:   path.resolve(__dirname, 'dist/images')
-                }
-            ]
-        })
+                    to: path.resolve(__dirname, 'dist/images'),
+                },
+            ],
+        }),
     ],
 };
 
 module.exports = ({ mode }) => {
     const isProductionMode = mode === 'prod';
-    const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
+    const envConfig = isProductionMode
+        ? require('./webpack.prod.config')
+        : require('./webpack.dev.config');
 
     return merge(baseConfig, envConfig);
 };

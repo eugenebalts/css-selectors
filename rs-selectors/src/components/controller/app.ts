@@ -3,13 +3,13 @@ import GameField from '../view/game-field/game-field';
 import Editor from '../view/editor/editor';
 
 export default class App {
-	private levelControl = new LevelControl();
-	private gameField = new GameField();
-	private editor = new Editor();
+    private levelControl = new LevelControl();
+    private gameField = new GameField();
+    private editor = new Editor();
 
-	public start():void {
-		this.levelControl.writeLevels();
-		this.gameField.initialField();
-		this.editor.editorListeners();
-	}
+    public start(): void {
+        this.levelControl.writeLevels();
+        this.gameField.initialField();
+        this.editor.editorListeners();
+    }
 }

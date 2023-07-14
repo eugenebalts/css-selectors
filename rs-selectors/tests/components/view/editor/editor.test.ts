@@ -18,18 +18,17 @@ describe('Editor', () => {
     test('Defines help method', () => {
         const result = editor['help']();
         expect(result).toBeUndefined();
-    })
+    });
 
     test('Defines checkAnswer method', () => {
         const result = editor['checkAnswer']();
         expect(result).toBeUndefined();
-    })
+    });
 
     test('Defines editorListeners method', () => {
         const result = editor['editorListeners']();
         expect(result).toBeUndefined();
-    })
-
+    });
 
     test('Should correctly update LocalStorage and switch current level', () => {
         const currentLevel = 6;
@@ -43,11 +42,15 @@ describe('Editor', () => {
     test('Defines update LocalStorage method', () => {
         const result = editor['updateLocalStorage'](7);
         expect(result).toBeUndefined();
-    })
+    });
 
     test('Should clean inputCss and make button disabled', () => {
-        const inputCss = document.querySelector('.input__input-css') as HTMLInputElement;
-        const helpBtn = document.querySelector('.editor__help-btn') as HTMLButtonElement;
+        const inputCss = document.querySelector(
+            '.input__input-css',
+        ) as HTMLInputElement;
+        const helpBtn = document.querySelector(
+            '.editor__help-btn',
+        ) as HTMLButtonElement;
 
         inputCss.value = 'Our old solution';
         editor.help();
@@ -55,4 +58,4 @@ describe('Editor', () => {
         expect(inputCss.value).toBe('');
         expect(helpBtn.disabled).toBe(true);
     });
-})
+});
